@@ -2027,8 +2027,7 @@
       <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.1em;padding:0 1.25rem;margin-bottom:0.75rem;text-transform:uppercase;">القائمة الرئيسية</p>
       <ul style="list-style:none;">
         <li><a href="#" onclick="showDashSection('requests')" class="prof-nav-link active-nav" id="nav-requests" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;transition:all 0.15s;border-right:3px solid var(--gold);">
-          <span>📥</span> طلبات الانضمام
-          <span id="requests-badge" style="margin-right:auto;background:var(--red-accent);color:#fff;font-size:0.68rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:50px;">٤</span>
+          <span>👥</span> إدارة الطلبة
         </a></li>
         <li><a href="#" onclick="showDashSection('students')" class="prof-nav-link" id="nav-students" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:all 0.15s;">
           <span>👥</span> الطلبة المقبولون
@@ -2052,54 +2051,46 @@
       <div id="section-requests">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;flex-wrap:wrap;gap:1rem;">
           <div>
-            <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">📥 طلبات الانضمام للمنصة</h2>
-            <p style="font-size:0.85rem;color:var(--text-muted);">راجع بيانات الطلبة وقَبِل أو ارفض كل طلب</p>
+            <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">👥 إدارة الطلبة المسجّلين</h2>
+            <p style="font-size:0.85rem;color:var(--text-muted);">التسجيل تلقائي – بإمكانك حظر أي طالب في أي وقت</p>
           </div>
           <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
             <button onclick="filterRequests('all')" id="filter-all" class="filter-btn active-filter" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:var(--teal);color:#fff;font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">الكل</button>
-            <button onclick="filterRequests('pending')" id="filter-pending" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">⏳ قيد الانتظار</button>
-            <button onclick="filterRequests('accepted')" id="filter-accepted" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">✅ مقبول</button>
-            <button onclick="filterRequests('rejected')" id="filter-rejected" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">❌ مرفوض</button>
+            <button onclick="filterRequests('accepted')" id="filter-accepted" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">✅ نشط</button>
+            <button onclick="filterRequests('rejected')" id="filter-rejected" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">🚫 محظور</button>
           </div>
         </div>
 
         <!-- Summary cards -->
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;" id="req-summary-cards">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.75rem;" id="req-summary-cards">
           <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
             <p style="font-size:1.8rem;font-weight:900;color:var(--text-main);" id="count-all">٧</p>
-            <p style="font-size:0.78rem;color:var(--text-muted);">إجمالي الطلبات</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">إجمالي المسجّلين</p>
           </div>
           <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
-            <p style="font-size:1.8rem;font-weight:900;color:#d97706;" id="count-pending">٤</p>
-            <p style="font-size:0.78rem;color:var(--text-muted);">قيد الانتظار</p>
-          </div>
-          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
-            <p style="font-size:1.8rem;font-weight:900;color:#16a34a;" id="count-accepted">٢</p>
-            <p style="font-size:0.78rem;color:var(--text-muted);">مقبول</p>
+            <p style="font-size:1.8rem;font-weight:900;color:#16a34a;" id="count-accepted">٦</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">نشط</p>
           </div>
           <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
             <p style="font-size:1.8rem;font-weight:900;color:var(--red-accent);" id="count-rejected">١</p>
-            <p style="font-size:0.78rem;color:var(--text-muted);">مرفوض</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">محظور</p>
           </div>
         </div>
 
         <!-- Requests table -->
         <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:14px;overflow:hidden;">
           <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--parchment-dark);display:flex;align-items:center;justify-content:space-between;">
-            <p style="font-size:0.9rem;font-weight:700;color:var(--text-main);">قائمة الطلبات</p>
+            <p style="font-size:0.9rem;font-weight:700;color:var(--text-main);">قائمة الطلبة</p>
             <input type="text" placeholder="🔍 بحث بالاسم أو الرقم..." oninput="searchRequests(this.value)" style="border:1px solid var(--parchment-dark);border-radius:8px;padding:0.4rem 0.75rem;font-family:'Cairo',sans-serif;font-size:0.82rem;outline:none;width:220px;">
           </div>
           <div id="requests-list" style="max-height:500px;overflow-y:auto;"></div>
         </div>
       </div>
 
-      <!-- ===== SECTION: STUDENTS ===== -->
+      <!-- ===== SECTION: STUDENTS (merged into requests) ===== -->
       <div id="section-students" style="display:none;">
-        <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">👥 الطلبة المقبولون</h2>
-        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem;">قائمة الطلبة النشطين في المنصة مع إمكانية الحظر</p>
-        <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:14px;overflow:hidden;">
-          <div id="students-list"></div>
-        </div>
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">👥 الطلبة النشطون</h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem;">راجع قسم إدارة الطلبة للحظر ورفع الحظر</p>
       </div>
 
       <!-- ===== SECTION: STATS ===== -->
@@ -2502,13 +2493,13 @@
   // DATA
   // =============================================
   let requests = [
-    { id:1, name:'أحمد بن عمر', univ:'20230001', email:'ahmed@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-15', status:'pending' },
-    { id:2, name:'فاطمة الزهراء كريم', univ:'20230042', email:'fatima@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-16', status:'pending' },
+    { id:1, name:'أحمد بن عمر', univ:'20230001', email:'ahmed@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-15', status:'accepted' },
+    { id:2, name:'فاطمة الزهراء كريم', univ:'20230042', email:'fatima@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-16', status:'accepted' },
     { id:3, name:'يوسف بلحسن', univ:'20220188', email:'youssef@univ-tiaret.dz', major:'دراسات لغوية', year:'السنة الثانية ليسانس', date:'2025-01-16', status:'accepted' },
-    { id:4, name:'نور الهدى مسعود', univ:'20230097', email:'nour@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-17', status:'pending' },
+    { id:4, name:'نور الهدى مسعود', univ:'20230097', email:'nour@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-17', status:'accepted' },
     { id:5, name:'عبد الرحمن بوزيد', univ:'20230153', email:'abdrahman@univ-tiaret.dz', major:'نقد ودراسات نصية', year:'السنة الثانية ليسانس', date:'2025-01-17', status:'rejected' },
     { id:6, name:'سارة بن علي', univ:'20230064', email:'sara@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-18', status:'accepted' },
-    { id:7, name:'محمد أمين قاسمي', univ:'20230210', email:'amine@univ-tiaret.dz', major:'دراسات لغوية', year:'السنة الثانية ليسانس', date:'2025-01-18', status:'pending' },
+    { id:7, name:'محمد أمين قاسمي', univ:'20230210', email:'amine@univ-tiaret.dz', major:'دراسات لغوية', year:'السنة الثانية ليسانس', date:'2025-01-18', status:'accepted' },
   ];
 
   let currentFilter = 'all';
@@ -2973,17 +2964,15 @@
   // REQUESTS RENDERING
   // =============================================
   function updateCounts() {
-    const all = requests.length;
-    const pending = requests.filter(r=>r.status==='pending').length;
+    const all      = requests.length;
     const accepted = requests.filter(r=>r.status==='accepted').length;
     const rejected = requests.filter(r=>r.status==='rejected').length;
-    document.getElementById('count-all').textContent = toArabicNum(all);
-    document.getElementById('count-pending').textContent = toArabicNum(pending);
+    document.getElementById('count-all').textContent      = toArabicNum(all);
     document.getElementById('count-accepted').textContent = toArabicNum(accepted);
     document.getElementById('count-rejected').textContent = toArabicNum(rejected);
+    // hide old pending badge
     const badge = document.getElementById('requests-badge');
-    if (pending > 0) { badge.style.display='inline'; badge.textContent=toArabicNum(pending); }
-    else badge.style.display='none';
+    if (badge) badge.style.display = 'none';
   }
 
   function toArabicNum(n) {
@@ -3016,23 +3005,20 @@
 
     const container = document.getElementById('requests-list');
     if (filtered.length === 0) {
-      container.innerHTML = '<div style="text-align:center;padding:3rem;color:var(--text-muted);font-size:0.9rem;">لا توجد طلبات تطابق هذا الفلتر</div>';
+      container.innerHTML = '<div style="text-align:center;padding:3rem;color:var(--text-muted);font-size:0.9rem;">لا يوجد طلبة يطابقون هذا الفلتر</div>';
       return;
     }
 
-    const statusLabel = { pending:'⏳ قيد الانتظار', accepted:'✅ مقبول', rejected:'❌ مرفوض' };
-    const statusClass = { pending:'pill-pending', accepted:'pill-accepted', rejected:'pill-rejected' };
-
     container.innerHTML = `
-      <div class="req-header">
+      <div class="req-header" style="grid-template-columns:2fr 1.2fr 1fr 1fr auto;">
         <span>الطالب</span>
         <span>التخصص / السنة</span>
-        <span>تاريخ الطلب</span>
+        <span>تاريخ التسجيل</span>
         <span>الحالة</span>
-        <span>الإجراءات</span>
+        <span>إجراء</span>
       </div>
       ${filtered.map(r => `
-      <div class="req-row" id="req-row-${r.id}">
+      <div class="req-row" id="req-row-${r.id}" style="grid-template-columns:2fr 1.2fr 1fr 1fr auto;">
         <div>
           <p style="font-weight:700;font-size:0.88rem;color:var(--text-main);">${r.name}</p>
           <p style="font-size:0.76rem;color:var(--text-muted);">${r.univ} | ${r.email}</p>
@@ -3042,16 +3028,14 @@
           <p style="font-size:0.76rem;color:var(--text-muted);">${r.year}</p>
         </div>
         <p style="font-size:0.82rem;color:var(--text-muted);">${r.date}</p>
-        <span class="status-pill ${statusClass[r.status]}">${statusLabel[r.status]}</span>
-        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
-          ${r.status==='pending' ? `
-            <button class="action-btn btn-accept" onclick="changeStatus(${r.id},'accepted')">قبول ✓</button>
-            <button class="action-btn btn-reject" onclick="changeStatus(${r.id},'rejected')">رفض ✗</button>
-          ` : r.status==='accepted' ? `
-            <button class="action-btn btn-ban" onclick="changeStatus(${r.id},'rejected')">حظر 🚫</button>
-          ` : `
-            <button class="action-btn btn-accept" onclick="changeStatus(${r.id},'accepted')">إعادة قبول</button>
-          `}
+        <span class="status-pill ${r.status==='accepted' ? 'pill-accepted' : 'pill-rejected'}">
+          ${r.status==='accepted' ? '✅ نشط' : '🚫 محظور'}
+        </span>
+        <div>
+          ${r.status==='accepted'
+            ? `<button class="action-btn btn-ban" onclick="changeStatus(${r.id},'rejected')" style="white-space:nowrap;">حظر 🚫</button>`
+            : `<button class="action-btn btn-accept" onclick="changeStatus(${r.id},'accepted')" style="white-space:nowrap;">رفع الحظر ✓</button>`
+          }
         </div>
       </div>`).join('')}
     `;
@@ -3060,12 +3044,14 @@
   function changeStatus(id, newStatus) {
     const req = requests.find(r=>r.id===id);
     if (!req) return;
-    const oldStatus = req.status;
     req.status = newStatus;
     renderRequests();
     renderStudents();
     updateCounts();
-    const msgs = { accepted:'✅ تم قبول الطالب بنجاح', rejected: oldStatus==='accepted' ? '🚫 تم حظر الطالب' : '❌ تم رفض الطلب' };
+    const msgs = {
+      accepted: '✅ تم رفع الحظر عن الطالب',
+      rejected: '🚫 تم حظر الطالب'
+    };
     showToast(msgs[newStatus] || 'تم تحديث الحالة');
   }
 
@@ -3170,12 +3156,12 @@
     btn.disabled = true;
     btn.innerHTML = '⏳ جاري الإرسال...';
 
-    // Add to requests list
+    // Auto-accept: add directly as active student
     requests.push({
       id: requests.length + 1,
       name, univ: id, email, major, year,
       date: new Date().toISOString().split('T')[0],
-      status: 'pending'
+      status: 'accepted'
     });
 
     // Send confirmation email to student via EmailJS
