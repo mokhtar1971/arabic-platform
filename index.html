@@ -1,0 +1,3217 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI شريك لا بديل للإنسان | منصة علوم العربية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f7f0e3;
+    --parchment-dark: #ede0c4;
+    --gold: #c8922a;
+    --gold-light: #e8b84b;
+    --gold-dark: #8b6010;
+    --teal: #1a5c5c;
+    --teal-light: #2a8080;
+    --teal-pale: #e8f4f4;
+    --red-accent: #8b1a1a;
+    --cream: #faf6ed;
+    --shadow: rgba(26,18,8,0.15);
+    --text-main: #2c1f0e;
+    --text-muted: #6b5a3e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Cairo', 'Noto Naskh Arabic', sans-serif;
+    background-color: var(--cream);
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* === NAVIGATION === */
+  nav {
+    position: fixed;
+    top: 0; right: 0; left: 0;
+    z-index: 1000;
+    background: rgba(26,18,8,0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--gold);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+  }
+
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .nav-logo-text .main-title {
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-text .sub-title {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.65rem;
+    font-weight: 300;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold-light);
+    background: rgba(200,146,42,0.15);
+  }
+
+  .nav-cta {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .btn-nav-login {
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--gold);
+    background: transparent;
+    color: var(--gold-light);
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-nav-login:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  .btn-nav-register {
+    padding: 0.45rem 1rem;
+    background: var(--gold);
+    color: var(--ink);
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-nav-register:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0f0a04 0%, #1a1208 40%, #0d2e2e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 100px 2rem 60px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200,146,42,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 20% 70%, rgba(26,92,92,0.12) 0%, transparent 60%);
+  }
+
+  .hero-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8922a' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .hero-content {
+    position: relative;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    animation: fadeInUp 0.9s ease both;
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(200,146,42,0.15);
+    border: 1px solid rgba(200,146,42,0.3);
+    border-radius: 50px;
+    padding: 0.35rem 1rem;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.7s ease 0.1s both;
+  }
+
+  .hero-badge span {
+    color: var(--gold-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .hero-main-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+    animation: fadeInUp 0.7s ease 0.2s both;
+  }
+
+  .hero-main-title .gold-text {
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.35rem);
+    color: rgba(255,255,255,0.6);
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+    animation: fadeInUp 0.7s ease 0.3s both;
+  }
+
+  .hero-tagline {
+    font-family: 'Amiri', serif;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+    animation: fadeInUp 0.7s ease 0.35s both;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(to left, transparent, var(--gold), transparent);
+    margin: 0 auto 2rem;
+    animation: fadeInUp 0.7s ease 0.4s both;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    animation: fadeInUp 0.7s ease 0.45s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.7s ease 0.5s both;
+  }
+
+  .btn-primary {
+    padding: 0.85rem 2rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    color: var(--ink);
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(200,146,42,0.4);
+  }
+
+  .btn-secondary {
+    padding: 0.85rem 2rem;
+    background: transparent;
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(200,146,42,0.08);
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(200,146,42,0.15);
+    animation: fadeInUp 0.7s ease 0.6s both;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .hero-stat {
+    text-align: center;
+  }
+
+  .hero-stat .number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold-light);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .hero-stat .label {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.8rem;
+  }
+
+  /* === SECTIONS === */
+  .section {
+    padding: 80px 2rem;
+  }
+
+  .section-light { background: var(--cream); }
+  .section-parchment { background: var(--parchment); }
+  .section-dark { background: #0f0a04; }
+  .section-teal { background: var(--teal); }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-eyebrow {
+    display: inline-block;
+    background: rgba(200,146,42,0.12);
+    border: 1px solid rgba(200,146,42,0.3);
+    color: var(--gold-dark);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .section-title {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title.light-title { color: #fff; }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .section-desc.light-desc { color: rgba(255,255,255,0.65); }
+
+  /* === ABOUT === */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-img-wrapper {
+    position: relative;
+  }
+
+  .about-img-card {
+    background: linear-gradient(135deg, var(--teal) 0%, #0d2e2e 100%);
+    border-radius: 16px;
+    padding: 2.5rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-card::before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: rgba(200,146,42,0.1);
+    border-radius: 50%;
+  }
+
+  .professor-avatar {
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+
+  .professor-name {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .professor-title {
+    font-size: 0.85rem;
+    color: var(--gold-light);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .professor-univ {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.5;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: var(--parchment);
+    border-right: 3px solid var(--gold);
+    border-radius: 0 8px 8px 0;
+  }
+
+  .about-feature .icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .about-feature h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+  }
+
+  .about-feature p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* === COURSES === */
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .course-card {
+    background: #fff;
+    border: 1px solid var(--parchment-dark);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+
+  .course-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--shadow);
+    border-color: var(--gold);
+  }
+
+  .course-header {
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .course-header.nahw {
+    background: linear-gradient(135deg, #0d2e2e 0%, #1a5c5c 100%);
+  }
+
+  .course-header.sarf {
+    background: linear-gradient(135deg, #2c1f0e 0%, #8b6010 100%);
+  }
+
+  .course-icon-big {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .course-header h3 {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+  }
+
+  .course-header p {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.85rem;
+  }
+
+  .course-badge {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    background: rgba(200,146,42,0.25);
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+  }
+
+  .course-body {
+    padding: 1.5rem 2rem;
+  }
+
+  .course-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .course-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+  }
+
+  .course-meta-item .meta-icon { font-size: 0.95rem; }
+
+  .course-topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .topic-tag {
+    background: var(--teal-pale);
+    color: var(--teal);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    border: 1px solid rgba(26,92,92,0.15);
+  }
+
+  .btn-course {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, var(--teal), #0d3535);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-course:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  .btn-course.sarf-btn {
+    background: linear-gradient(135deg, var(--gold-dark), #6b4a10);
+  }
+
+  /* === FEATURES SECTION === */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .feature-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(200,146,42,0.15);
+    border-radius: 12px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+
+  .feature-card:hover {
+    background: rgba(200,146,42,0.05);
+    border-color: rgba(200,146,42,0.35);
+    transform: translateY(-3px);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .feature-card h4 {
+    color: var(--gold-light);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  /* === INTEGRITY SECTION === */
+  .integrity-box {
+    background: linear-gradient(135deg, var(--teal) 0%, #0d2e2e 100%);
+    border-radius: 16px;
+    padding: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .integrity-box::before {
+    content: '📜';
+    position: absolute;
+    font-size: 12rem;
+    opacity: 0.04;
+    left: -2rem;
+    top: -2rem;
+  }
+
+  .integrity-content h3 {
+    font-family: 'Amiri', serif;
+    font-size: 1.8rem;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+  }
+
+  .integrity-content p {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .integrity-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .integrity-points li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .integrity-points li .check {
+    color: var(--gold-light);
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+  }
+
+  /* === MODAL === */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,8,3,0.88);
+    backdrop-filter: blur(6px);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .modal-overlay.active {
+    display: flex;
+  }
+
+  .modal {
+    background: var(--cream);
+    border-radius: 16px;
+    max-width: 520px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalIn 0.3s ease;
+  }
+
+  @keyframes modalIn {
+    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+
+  .modal-header {
+    padding: 1.75rem 1.75rem 1.25rem;
+    border-bottom: 1px solid var(--parchment-dark);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .modal-header h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .modal-close {
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: var(--parchment-dark);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .modal-close:hover { background: #d0b08a; }
+
+  .modal-body { padding: 1.5rem 1.75rem; }
+
+  .form-group {
+    margin-bottom: 1.1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group label span.req { color: var(--red-accent); }
+
+  .form-control {
+    width: 100%;
+    padding: 0.7rem 0.9rem;
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: #fff;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-control:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(26,92,92,0.08); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .charter-box {
+    background: var(--parchment);
+    border: 1px solid var(--parchment-dark);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    max-height: 160px;
+    overflow-y: auto;
+  }
+
+  .charter-box h4 {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .charter-box ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .charter-box ul li {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .charter-box ul li::before {
+    content: '◆';
+    color: var(--gold);
+    font-size: 0.6rem;
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .agree-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .agree-row input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--teal);
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+  }
+
+  .agree-row label {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.85rem;
+    background: linear-gradient(135deg, var(--teal), #0d3535);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+
+  .btn-submit:hover { opacity: 0.92; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+  .form-footer {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+  }
+
+  .form-footer a {
+    color: var(--teal);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .success-msg .success-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .success-msg h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .success-msg p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* === FORUM === */
+  .forum-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .forum-post {
+    background: #fff;
+    border: 1px solid var(--parchment-dark);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    transition: box-shadow 0.2s;
+    cursor: pointer;
+  }
+
+  .forum-post:hover { box-shadow: 0 4px 16px var(--shadow); }
+
+  .forum-avatar {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--teal), #0d3535);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .forum-post-content h4 {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.3rem;
+  }
+
+  .forum-post-content p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .forum-post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .forum-post-meta span {
+    font-size: 0.75rem;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* === FOOTER === */
+  footer {
+    background: #0a0804;
+    border-top: 2px solid var(--gold-dark);
+    padding: 3rem 2rem 1.5rem;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .footer-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-brand h3 {
+    color: var(--gold-light);
+    font-family: 'Amiri', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links h4 {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .footer-links ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--gold-light); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(200,146,42,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  /* === DASHBOARD PREVIEW === */
+  .dashboard-preview {
+    background: #fff;
+    border: 1px solid var(--parchment-dark);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px var(--shadow);
+  }
+
+  .dashboard-topbar {
+    background: var(--ink);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .dashboard-topbar .logo-sm {
+    color: var(--gold-light);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .dashboard-topbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+  }
+
+  .dashboard-body {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    min-height: 350px;
+  }
+
+  .dashboard-sidebar {
+    background: var(--parchment);
+    border-left: 1px solid var(--parchment-dark);
+    padding: 1.25rem 0;
+  }
+
+  .sidebar-menu { list-style: none; }
+
+  .sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+
+  .sidebar-menu li a:hover,
+  .sidebar-menu li.active a {
+    color: var(--teal);
+    background: rgba(26,92,92,0.08);
+    font-weight: 600;
+  }
+
+  .sidebar-menu li.active a {
+    border-right: 3px solid var(--teal);
+  }
+
+  .dashboard-main {
+    padding: 1.5rem;
+  }
+
+  .dash-welcome {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 1.25rem;
+  }
+
+  .progress-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .progress-card {
+    background: var(--parchment);
+    border-radius: 10px;
+    padding: 1rem;
+    border: 1px solid var(--parchment-dark);
+  }
+
+  .progress-card .p-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+  }
+
+  .progress-card .p-value {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: var(--teal);
+    margin-bottom: 0.4rem;
+  }
+
+  .progress-bar-bg {
+    height: 5px;
+    background: var(--parchment-dark);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to left, var(--gold), var(--teal));
+    border-radius: 3px;
+    transition: width 1s ease;
+  }
+
+  .dash-lectures-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .dash-lecture-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1rem;
+    background: var(--parchment);
+    border-radius: 8px;
+    border: 1px solid var(--parchment-dark);
+    font-size: 0.82rem;
+  }
+
+  .dash-lecture-item .status-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .status-done { background: #22c55e; }
+  .status-current { background: var(--gold); }
+  .status-locked { background: #ccc; }
+
+  .dash-lecture-item .lec-name {
+    flex: 1;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .dash-lecture-item .lec-score {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .lock-icon { color: #aaa; font-size: 0.8rem; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .integrity-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+    .courses-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .dashboard-body { grid-template-columns: 1fr; }
+    .dashboard-sidebar { display: none; }
+    .progress-cards { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 480px) {
+    .features-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1rem; }
+  }
+
+  /* === QUIZ PREVIEW === */
+  .quiz-card {
+    background: #fff;
+    border: 1px solid var(--parchment-dark);
+    border-radius: 14px;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .quiz-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .quiz-header h4 { font-size: 1rem; font-weight: 700; color: var(--text-main); }
+
+  .quiz-timer {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--parchment);
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--teal);
+  }
+
+  .quiz-question {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    padding: 1rem;
+    background: var(--parchment);
+    border-radius: 8px;
+    border-right: 3px solid var(--gold);
+  }
+
+  .quiz-options { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .quiz-option {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid var(--parchment-dark);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.92rem;
+    color: var(--text-main);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .quiz-option:hover {
+    border-color: var(--teal);
+    background: var(--teal-pale);
+  }
+
+  .quiz-option.selected {
+    border-color: var(--teal);
+    background: var(--teal-pale);
+    font-weight: 600;
+  }
+
+  .quiz-option.correct { border-color: #22c55e; background: #f0fdf4; color: #166534; }
+  .quiz-option.wrong { border-color: var(--red-accent); background: #fef2f2; color: var(--red-accent); }
+
+  .option-label {
+    width: 26px;
+    height: 26px;
+    border: 1.5px solid currentColor;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* nav active state */
+  .page-section { scroll-margin-top: 80px; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">🌙</div>
+    <div class="nav-logo-text">
+      <span class="main-title">AI شريك لا بديل للإنسان</span>
+      <span class="sub-title">منصة علوم العربية | جامعة ابن خلدون تيارت</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">عن المنصة</a></li>
+    <li><a href="#courses">المقررات</a></li>
+    <li><a href="#features">المميزات</a></li>
+    <li><a href="#forum">المنتدى</a></li>
+    <li><a href="#quiz-preview">الاختبارات</a></li>
+  </ul>
+  <div class="nav-cta">
+    <button class="btn-nav-login" onclick="openModal('login-modal')">تسجيل الدخول</button>
+    <button class="btn-nav-register" onclick="openModal('register-modal')">انضم للمنصة</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span>🏛️</span>
+      <span>مخبر الدراسات النحوية واللغوية بين التراث والحداثة</span>
+    </div>
+    <h1 class="hero-main-title">
+      <span class="gold-text">AI</span> شريك<br>لا بديل للإنسان
+    </h1>
+    <p class="hero-subtitle">الذكاء الاصطناعي في خدمة علوم العربية</p>
+    <p class="hero-tagline">جامعة ابن خلدون – تيارت | الجزائر</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      بيئة تعليمية رقمية متكاملة لطلبة تخصص اللغة العربية، تجمع بين عمق التراث النحوي والصرفي 
+      وأدوات الذكاء الاصطناعي الحديثة، مع الحفاظ على النزاهة العلمية في التعلم.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="openModal('register-modal')">🎓 ابدأ رحلتك التعليمية</button>
+      <a href="#courses" class="btn-secondary">📚 استعرض المقررات</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="number">٢</span>
+        <span class="label">مقررات أساسية</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">٢٨</span>
+        <span class="label">محاضرة علمية</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">٧</span>
+        <span class="label">أنواع تطبيقات</span>
+      </div>
+      <div class="hero-stat">
+        <span class="number">١٠٠٪</span>
+        <span class="label">نزاهة علمية</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-light page-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">عن المنصة</div>
+        <h2 class="section-title">رؤية أكاديمية<br>بأدوات العصر</h2>
+        <p style="color:var(--text-muted); font-size:0.95rem; line-height:1.8; margin:1rem 0 2rem;">
+          تُقدّم هذه المنصة تجربة تعليمية فريدة تُوظِّف الذكاء الاصطناعي توظيفاً نقدياً واعياً 
+          في خدمة الدراسات النحوية والصرفية، بما يرفع الكفاءة التعليمية دون المساس بمبادئ 
+          الأمانة العلمية.
+        </p>
+        <div class="about-features">
+          <div class="about-feature">
+            <span class="icon">🎯</span>
+            <div>
+              <h4>تعلّم تدريجي منظّم</h4>
+              <p>لا تُفتح المحاضرة التالية إلا بعد إتمام السابقة وتحقيق الحد الأدنى.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <span class="icon">🤖</span>
+            <div>
+              <h4>الذكاء الاصطناعي أداةً لا بديلاً</h4>
+              <p>تطبيقات تعليمية ذكية مبنية على المحتوى العلمي للمحاضرات.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <span class="icon">📊</span>
+            <div>
+              <h4>متابعة مستمرة ودقيقة</h4>
+              <p>نتائج الاختبارات، نسبة التقدم، الترتيب في الدفعة في مكان واحد.</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <span class="icon">🔒</span>
+            <div>
+              <h4>حماية المحتوى العلمي</h4>
+              <p>المحاضرات للمشاهدة فقط، لا يمكن تحميلها حفاظاً على حقوق الملكية الفكرية.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-img-wrapper">
+        <div class="about-img-card">
+          <div class="professor-avatar">👨‍🏫</div>
+          <p class="professor-name">أ.د. بن جلول مختار</p>
+          <p class="professor-title">أستاذ محاضر – قسم اللغة والأدب العربي</p>
+          <p class="professor-univ">
+            جامعة ابن خلدون – تيارت، الجزائر<br>
+            مخبر الدراسات النحوية واللغوية<br>
+            بين التراث والحداثة في الجزائر
+          </p>
+          <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid rgba(255,255,255,0.12);">
+            <p style="font-size:0.82rem; color:rgba(255,255,255,0.6); font-style:italic; line-height:1.7;">
+              "الذكاء الاصطناعي أداة معرفية قوية، غير أن التفكير النقدي والأمانة العلمية 
+              تبقيان خاصيتين إنسانيتين لا يمكن استبدالهما."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="section section-parchment page-section" id="courses">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">المقررات الدراسية</div>
+      <h2 class="section-title">المقررين الأساسيين</h2>
+      <p class="section-desc">مقرران متكاملان يغطيان علمَي النحو والصرف العربي وفق منهج أكاديمي رصين</p>
+    </div>
+    <div class="courses-grid">
+      <!-- Nahw Course -->
+      <div class="course-card">
+        <div class="course-header nahw">
+          <span class="course-badge">السنة الثانية</span>
+          <span class="course-icon-big">📖</span>
+          <h3>علم النحو 02</h3>
+          <p>دراسة معمّقة في قواعد النحو العربي وظواهره</p>
+        </div>
+        <div class="course-body">
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <span class="meta-icon">📚</span>
+              <span>١٤ محاضرة</span>
+            </div>
+            <div class="course-meta-item">
+              <span class="meta-icon">🎯</span>
+              <span>أعمال موجهة</span>
+            </div>
+            <div class="course-meta-item">
+              <span class="meta-icon">📝</span>
+              <span>اختبارات إلكترونية</span>
+            </div>
+          </div>
+          <div class="course-topics">
+            <span class="topic-tag">المرفوعات</span>
+            <span class="topic-tag">المنصوبات</span>
+            <span class="topic-tag">المجرورات</span>
+            <span class="topic-tag">التوابع</span>
+            <span class="topic-tag">الإعراب</span>
+            <span class="topic-tag">العامل والمعمول</span>
+          </div>
+          <button class="btn-course" onclick="openModal('register-modal')">ابدأ المقرر ←</button>
+        </div>
+      </div>
+      <!-- Sarf Course -->
+      <div class="course-card">
+        <div class="course-header sarf">
+          <span class="course-badge">السنة الثانية</span>
+          <span class="course-icon-big">✍️</span>
+          <h3>علم الصرف 02</h3>
+          <p>تحليل بنية الكلمة العربية ومعرفة أوزانها وصيغها</p>
+        </div>
+        <div class="course-body">
+          <div class="course-meta">
+            <div class="course-meta-item">
+              <span class="meta-icon">📚</span>
+              <span>١٤ محاضرة</span>
+            </div>
+            <div class="course-meta-item">
+              <span class="meta-icon">🎯</span>
+              <span>أعمال موجهة</span>
+            </div>
+            <div class="course-meta-item">
+              <span class="meta-icon">📝</span>
+              <span>اختبارات إلكترونية</span>
+            </div>
+          </div>
+          <div class="course-topics">
+            <span class="topic-tag">الميزان الصرفي</span>
+            <span class="topic-tag">استخراج الجذر</span>
+            <span class="topic-tag">الإعلال</span>
+            <span class="topic-tag">الإدغام</span>
+            <span class="topic-tag">المشتقات</span>
+            <span class="topic-tag">أبنية الأفعال</span>
+          </div>
+          <button class="btn-course sarf-btn" onclick="openModal('register-modal')">ابدأ المقرر ←</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES (dark bg) -->
+<section class="section section-dark page-section" id="features">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow" style="background:rgba(200,146,42,0.15);color:var(--gold-light);">مميزات المنصة</div>
+      <h2 class="section-title light-title">بيئة تعليمية متكاملة</h2>
+      <p class="section-desc light-desc">كل ما يحتاجه الطالب والأستاذ في مكان واحد</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">🧠</span>
+        <h4>تطبيقات تحليل نحوي</h4>
+        <p>تطبيقات تفاعلية لتحديد العامل والمعمول، تحليل الإعراب، وتصحيح الأخطاء النحوية بناءً على المحاضرات.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">⚖️</span>
+        <h4>تطبيقات الوزن الصرفي</h4>
+        <p>تدريبات على تحديد الوزن الصرفي، استخراج الجذر، وتحليل البنية الصرفية للكلمة العربية.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h4>نظام اختبارات متقدم</h4>
+        <p>اختيار متعدد، صح/خطأ، ملء الفراغ، تحليل نحوي وصرفي. تصحيح تلقائي وعرض النتيجة فوراً.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📈</span>
+        <h4>متابعة التقدم الدراسي</h4>
+        <p>نسبة الإنجاز، المحاضرات المكتملة، سجل النتائج، والترتيب بين زملاء الدفعة.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🎬</span>
+        <h4>محاضرات محمية</h4>
+        <p>فيديوهات الشرح، الملخصات، مخططات الدروس، والمواد التعليمية متاحة للمشاهدة فقط.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💬</span>
+        <h4>منتدى علمي مُشرَف</h4>
+        <p>نقاش أكاديمي تحت إشراف الأستاذ: طرح الأسئلة، تحليل النصوص، مناقشة الظواهر اللغوية.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">👨‍💼</span>
+        <h4>لوحة تحكم الأستاذ</h4>
+        <p>إدارة الطلبة، قبول التسجيلات، رفع المحاضرات، إدارة بنك الأسئلة، ومتابعة الإحصائيات.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📱</span>
+        <h4>تطبيق هاتفي متكامل</h4>
+        <p>متابعة المحاضرات وحل التطبيقات وإجراء الاختبارات ومتابعة التقدم من هاتفك.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔐</span>
+        <h4>نظام تسجيل أكاديمي</h4>
+        <p>تسجيل بالرقم الجامعي، موافقة الأستاذ لتفعيل الحساب، وميثاق النزاهة العلمية الإلزامي.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD PREVIEW -->
+<section class="section section-parchment">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">واجهة الطالب</div>
+      <h2 class="section-title">لوحة التقدم الدراسي</h2>
+      <p class="section-desc">متابعة شاملة لأدائك الأكاديمي في مكان واحد</p>
+    </div>
+    <div class="dashboard-preview">
+      <div class="dashboard-topbar">
+        <span class="logo-sm">🌙 AI شريك لا بديل للإنسان</span>
+        <div class="user-info">
+          <span>👤</span>
+          <span>أحمد بن عمر | السنة الثانية</span>
+        </div>
+      </div>
+      <div class="dashboard-body">
+        <div class="dashboard-sidebar">
+          <ul class="sidebar-menu">
+            <li class="active"><a href="#">🏠 الرئيسية</a></li>
+            <li><a href="#">📖 علم النحو 02</a></li>
+            <li><a href="#">✍️ علم الصرف 02</a></li>
+            <li><a href="#">🎯 الأعمال الموجهة</a></li>
+            <li><a href="#">📝 الاختبارات</a></li>
+            <li><a href="#">💬 المنتدى</a></li>
+            <li><a href="#">📊 نتائجي</a></li>
+          </ul>
+        </div>
+        <div class="dashboard-main">
+          <p class="dash-welcome">مرحباً، أحمد! 👋 إليك ملخص تقدمك الدراسي</p>
+          <div class="progress-cards">
+            <div class="progress-card">
+              <p class="p-label">تقدم النحو</p>
+              <p class="p-value">٦٤٪</p>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:64%"></div></div>
+            </div>
+            <div class="progress-card">
+              <p class="p-label">تقدم الصرف</p>
+              <p class="p-value">٤٢٪</p>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:42%"></div></div>
+            </div>
+            <div class="progress-card">
+              <p class="p-label">متوسط النتائج</p>
+              <p class="p-value">١٦.٤</p>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:82%"></div></div>
+            </div>
+          </div>
+          <div class="dash-lectures-list">
+            <div class="dash-lecture-item">
+              <div class="status-dot status-done"></div>
+              <span class="lec-name">م١: مفهوم النحو وموضوعه</span>
+              <span class="lec-score">١٧/٢٠ ✓</span>
+            </div>
+            <div class="dash-lecture-item">
+              <div class="status-dot status-done"></div>
+              <span class="lec-name">م٢: المرفوعات – المبتدأ والخبر</span>
+              <span class="lec-score">١٨/٢٠ ✓</span>
+            </div>
+            <div class="dash-lecture-item">
+              <div class="status-dot status-current"></div>
+              <span class="lec-name">م٣: الفاعل ونائب الفاعل</span>
+              <span class="lec-score">جارٍ ▶</span>
+            </div>
+            <div class="dash-lecture-item" style="opacity:0.5">
+              <div class="status-dot status-locked"></div>
+              <span class="lec-name">م٤: أحكام الفعل مع الفاعل</span>
+              <span class="lock-icon">🔒</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ PREVIEW -->
+<section class="section section-light page-section" id="quiz-preview">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">الاختبارات الإلكترونية</div>
+      <h2 class="section-title">اختبر مستواك الآن</h2>
+      <p class="section-desc">أسئلة تفاعلية مبنية على محتوى المحاضرات مع تصحيح فوري</p>
+    </div>
+    <div class="quiz-card">
+      <div class="quiz-header">
+        <h4>📝 اختبار المحاضرة الثالثة – علم النحو</h4>
+        <div class="quiz-timer">⏱ ٢٣:٤٥</div>
+      </div>
+      <div class="quiz-question">
+        السؤال ٢ من ١٠: أعرِب الكلمة المُسطَّر تحتها في الجملة الآتية:<br>
+        <strong>"جاء الطالبُ مجتهداً"</strong> – ما إعراب كلمة <u>مجتهداً</u>؟
+      </div>
+      <div class="quiz-options" id="quiz-opts">
+        <div class="quiz-option" onclick="selectOpt(this, false)">
+          <div class="option-label">أ</div>
+          <span>فاعل مرفوع وعلامة رفعه الضمة</span>
+        </div>
+        <div class="quiz-option" onclick="selectOpt(this, true)">
+          <div class="option-label">ب</div>
+          <span>حال منصوب وعلامة نصبه الفتحة</span>
+        </div>
+        <div class="quiz-option" onclick="selectOpt(this, false)">
+          <div class="option-label">ج</div>
+          <span>مفعول به منصوب وعلامة نصبه الفتحة</span>
+        </div>
+        <div class="quiz-option" onclick="selectOpt(this, false)">
+          <div class="option-label">د</div>
+          <span>نعت مرفوع تبعاً للمنعوت</span>
+        </div>
+      </div>
+      <div id="quiz-result" style="display:none;margin-top:1.25rem;padding:1rem;border-radius:8px;font-size:0.9rem;font-weight:600;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRITY SECTION -->
+<section class="section section-light page-section" id="integrity">
+  <div class="container">
+    <div class="integrity-box">
+      <div class="integrity-content">
+        <h3>📜 ميثاق النزاهة العلمية</h3>
+        <p>
+          كل طالب يلتحق بالمنصة يُوقِّع على ميثاق النزاهة العلمية قبل تفعيل حسابه، 
+          تأكيداً لمبادئ البحث الأكاديمي الرصين والتعامل الأخلاقي مع أدوات الذكاء الاصطناعي.
+        </p>
+        <ul class="integrity-points">
+          <li><span class="check">✦</span> الالتزام التام بالأمانة العلمية في جميع التقييمات</li>
+          <li><span class="check">✦</span> استخدام الذكاء الاصطناعي أداةً مساعدة لا للغش أو الانتحال</li>
+          <li><span class="check">✦</span> احترام حقوق الملكية الفكرية للمحاضرات والمواد العلمية</li>
+          <li><span class="check">✦</span> الإسهام البنّاء في النقاشات الأكاديمية بأسلوب علمي رصين</li>
+          <li><span class="check">✦</span> قبول إشراف الأستاذ ومتابعته الأكاديمية المستمرة</li>
+        </ul>
+      </div>
+      <div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:12px;padding:1.75rem;border:1px solid rgba(200,146,42,0.2);">
+          <div style="font-size:2.5rem;margin-bottom:1rem;">🤖</div>
+          <h4 style="color:var(--gold-light);font-size:1.05rem;margin-bottom:0.75rem;">الذكاء الاصطناعي في خدمتك</h4>
+          <p style="color:rgba(255,255,255,0.65);font-size:0.87rem;line-height:1.7;margin-bottom:1.25rem;">
+            يستخدم الأستاذ أدوات الذكاء الاصطناعي لاستخراج أسئلة وتطبيقات تعليمية من محاضراته، 
+            مما يُثري تجربتك التعليمية ويرفع جودة الاختبارات.
+          </p>
+          <div style="display:flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.5);font-size:0.82rem;">
+            <span>🔬</span>
+            <span>أداة للأستاذ | تطبيقات للطالب</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORUM -->
+<section class="section section-parchment page-section" id="forum">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-eyebrow">المنتدى العلمي</div>
+      <h2 class="section-title">نقاش أكاديمي مُشرَف</h2>
+      <p class="section-desc">منبر للحوار العلمي تحت إشراف الأستاذ الدكتور بن جلول مختار</p>
+    </div>
+    <div class="forum-preview">
+      <div class="forum-post">
+        <div class="forum-avatar">أح</div>
+        <div class="forum-post-content">
+          <h4>ما الفرق بين الحال والنعت في الجملة العربية؟</h4>
+          <p>أشكل عليّ التمييز بين الحال والنعت في بعض الجمل، كقولنا "جاء الطالبُ مجتهداً" و"جاء الطالبُ المجتهدُ"...</p>
+          <div class="forum-post-meta">
+            <span>💬 ٣ ردود</span>
+            <span>👁 ٢٤ مشاهدة</span>
+            <span>🕐 منذ ساعتين</span>
+          </div>
+        </div>
+      </div>
+      <div class="forum-post">
+        <div class="forum-avatar" style="background:linear-gradient(135deg,var(--gold),var(--gold-dark));">د</div>
+        <div class="forum-post-content">
+          <h4>📌 الأستاذ: توضيح مسألة الإعلال في الأفعال المعتلة</h4>
+          <p>استكمالاً لما درسناه في المحاضرة السادسة، أودّ توضيح أنواع الإعلال وشروط كل نوع...</p>
+          <div class="forum-post-meta">
+            <span>💬 ١٢ تعليقاً</span>
+            <span>👁 ٨٩ مشاهدة</span>
+            <span>🕐 أمس</span>
+          </div>
+        </div>
+      </div>
+      <div class="forum-post">
+        <div class="forum-avatar" style="background:linear-gradient(135deg,#4a1c8c,#6b2db5);">فا</div>
+        <div class="forum-post-content">
+          <h4>هل يمكن أن يكون الفعل الناقص فاعلاً؟</h4>
+          <p>في سياق دراستنا للمرفوعات، أتساءل عن إمكانية أن يرد الفعل المضارع في موقع الفاعل...</p>
+          <div class="forum-post-meta">
+            <span>💬 ٥ ردود</span>
+            <span>👁 ٣١ مشاهدة</span>
+            <span>🕐 قبل ٣ أيام</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem;">
+        <button class="btn-primary" onclick="openModal('register-modal')">انضم للنقاش العلمي ←</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>AI شريك لا بديل للإنسان</h3>
+      <p>منصة تعليمية أكاديمية متخصصة في علوم العربية، تجمع بين عمق التراث النحوي والصرفي وأدوات الذكاء الاصطناعي الحديثة.</p>
+      <p style="font-size:0.82rem;color:rgba(255,255,255,0.35);">
+        مخبر الدراسات النحوية واللغوية بين التراث والحداثة<br>
+        جامعة ابن خلدون – تيارت، الجزائر
+      </p>
+    </div>
+    <div class="footer-links">
+      <h4>روابط سريعة</h4>
+      <ul>
+        <li><a href="#about">عن المنصة</a></li>
+        <li><a href="#courses">علم النحو 02</a></li>
+        <li><a href="#courses">علم الصرف 02</a></li>
+        <li><a href="#forum">المنتدى العلمي</a></li>
+        <li><a href="#quiz-preview">الاختبارات</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>الحساب</h4>
+      <ul>
+        <li><a href="#" onclick="openModal('register-modal')">إنشاء حساب</a></li>
+        <li><a href="#" onclick="openModal('login-modal')">تسجيل الدخول</a></li>
+        <li><a href="#integrity">ميثاق النزاهة</a></li>
+        <li><a href="#">الدعم الفني</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© ٢٠٢٥ أ.د. بن جلول مختار – جميع الحقوق محفوظة</span>
+    <span>مخبر الدراسات النحوية واللغوية | جامعة ابن خلدون تيارت</span>
+  </div>
+</footer>
+
+<!-- REGISTER MODAL -->
+<div class="modal-overlay" id="register-modal">
+  <div class="modal">
+    <div class="modal-header">
+      <h3>🎓 إنشاء حساب طالب</h3>
+      <button class="modal-close" onclick="closeModal('register-modal')">✕</button>
+    </div>
+    <div class="modal-body" id="register-form-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>الاسم الكامل <span class="req">*</span></label>
+          <input class="form-control" type="text" placeholder="أدخل اسمك الكامل" id="reg-name">
+        </div>
+        <div class="form-group">
+          <label>الرقم الجامعي <span class="req">*</span></label>
+          <input class="form-control" type="text" placeholder="مثال: 2023012345" id="reg-id">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>البريد الإلكتروني <span class="req">*</span></label>
+        <input class="form-control" type="email" placeholder="exemple@univ-tiaret.dz" id="reg-email">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>التخصص <span class="req">*</span></label>
+          <select class="form-control" id="reg-major">
+            <option value="">اختر التخصص</option>
+            <option>لغة وأدب عربي</option>
+            <option>دراسات لغوية</option>
+            <option>نقد ودراسات نصية</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>السنة الدراسية <span class="req">*</span></label>
+          <select class="form-control" id="reg-year">
+            <option value="">اختر السنة</option>
+            <option>السنة الأولى ليسانس</option>
+            <option>السنة الثانية ليسانس</option>
+            <option>السنة الثالثة ليسانس</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>كلمة المرور <span class="req">*</span></label>
+          <input class="form-control" type="password" placeholder="٨ أحرف على الأقل" id="reg-pass">
+        </div>
+        <div class="form-group">
+          <label>تأكيد كلمة المرور <span class="req">*</span></label>
+          <input class="form-control" type="password" placeholder="أعد إدخال كلمة المرور" id="reg-pass2">
+        </div>
+      </div>
+
+      <div class="charter-box">
+        <h4>📜 ميثاق النزاهة العلمية – يُرجى القراءة بعناية</h4>
+        <ul>
+          <li>أتعهد بالالتزام التام بالأمانة العلمية في جميع التقييمات والاختبارات.</li>
+          <li>أتعهد بعدم استخدام الذكاء الاصطناعي لانتحال الإجابات أو الغش في الاختبارات.</li>
+          <li>أُقرّ باستخدام الذكاء الاصطناعي فقط كأداة مساعدة في الفهم والتعلم.</li>
+          <li>أحترم حقوق الملكية الفكرية للمحاضرات والمواد العلمية للأستاذ.</li>
+          <li>أتقبّل الإشراف الأكاديمي للأستاذ وقراراته فيما يخص قبول أو رفض التسجيل.</li>
+          <li>أُقرّ بأن المحتوى العلمي للمنصة لا يُحمَّل أو يُنسَخ أو يُعاد نشره.</li>
+        </ul>
+      </div>
+
+      <div class="agree-row">
+        <input type="checkbox" id="agree-charter">
+        <label for="agree-charter">
+          أوافق على <strong>ميثاق النزاهة العلمية</strong> وأتعهد بالالتزام ببنوده كاملةً
+        </label>
+      </div>
+
+      <button class="btn-submit" onclick="submitRegister()">
+        ✅ أوافق على ميثاق النزاهة العلمية وأُسجِّل
+      </button>
+
+      <p class="form-footer">
+        لديك حساب؟ <a href="#" onclick="switchModal('register-modal','login-modal')">سجّل الدخول</a>
+      </p>
+    </div>
+    <div class="success-msg" id="register-success">
+      <div class="success-icon">📬</div>
+      <h4>تم إرسال طلب التسجيل بنجاح!</h4>
+      <p>سيتولى الأستاذ الدكتور بن جلول مختار مراجعة طلبك والبت فيه قريباً.<br>
+      ستصلك رسالة على بريدك الإلكتروني عند تفعيل الحساب.</p>
+    </div>
+  </div>
+</div>
+
+<!-- LOGIN MODAL (unified: student + professor tab) -->
+<div class="modal-overlay" id="login-modal">
+  <div class="modal" style="max-width:460px;">
+    <div class="modal-header">
+      <h3>🔐 تسجيل الدخول</h3>
+      <button class="modal-close" onclick="closeModal('login-modal')">✕</button>
+    </div>
+    <div class="modal-body">
+      <!-- Role tabs -->
+      <div class="login-tabs">
+        <button class="login-tab active" id="tab-student" onclick="switchLoginTab('student')">🎓 طالب</button>
+        <button class="login-tab" id="tab-prof" onclick="switchLoginTab('prof')">👨‍🏫 أستاذ</button>
+      </div>
+
+      <!-- Student login -->
+      <div id="login-student-section">
+        <div class="form-group" style="margin-top:1.25rem;">
+          <label>البريد الإلكتروني أو الرقم الجامعي <span class="req">*</span></label>
+          <input class="form-control" type="text" placeholder="البريد أو الرقم الجامعي" id="stu-login-id">
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور <span class="req">*</span></label>
+          <input class="form-control" type="password" placeholder="كلمة المرور" id="stu-login-pass">
+        </div>
+        <button class="btn-submit" onclick="closeModal('login-modal')">دخول ←</button>
+        <p class="form-footer" style="margin-top:1rem;">
+          ليس لديك حساب؟ <a href="#" onclick="switchModal('login-modal','register-modal')">سجّل الآن</a>
+        </p>
+      </div>
+
+      <!-- Professor login -->
+      <div id="login-prof-section" style="display:none;">
+        <div style="background:linear-gradient(135deg,rgba(26,92,92,0.08),rgba(200,146,42,0.06));border:1px solid rgba(26,92,92,0.2);border-radius:10px;padding:0.9rem 1.1rem;margin:1.25rem 0 1rem;display:flex;align-items:center;gap:0.65rem;">
+          <span style="font-size:1.4rem;">🏛️</span>
+          <div>
+            <p style="font-size:0.8rem;font-weight:700;color:var(--teal);">بوابة الأستاذ الدكتور</p>
+            <p style="font-size:0.75rem;color:var(--text-muted);">مخصصة للأستاذ المشرف على المنصة فقط</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>البريد الأكاديمي <span class="req">*</span></label>
+          <input class="form-control" type="email" placeholder="benjalloul@univ-tiaret.dz" id="prof-login-email">
+        </div>
+        <div class="form-group">
+          <label>كلمة المرور <span class="req">*</span></label>
+          <input class="form-control" type="password" placeholder="كلمة المرور الأكاديمية" id="prof-login-pass">
+        </div>
+        <div id="prof-login-err" style="display:none;background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:0.65rem 0.9rem;margin-bottom:1rem;font-size:0.83rem;color:#991b1b;">
+          ❌ بيانات الدخول غير صحيحة. يُرجى المحاولة مجدداً.
+        </div>
+        <button class="btn-submit" style="background:linear-gradient(135deg,var(--teal),#0d3535);" onclick="profLogin()">
+          دخول لوحة الإشراف ←
+        </button>
+        <p style="text-align:center;margin-top:0.9rem;font-size:0.78rem;color:var(--text-muted);">
+          🔒 الدخول محمي ومقيّد بصلاحية الأستاذ المشرف
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================================================= -->
+<!-- PROFESSOR DASHBOARD OVERLAY                              -->
+<!-- ======================================================= -->
+<div id="prof-dashboard" style="display:none;position:fixed;inset:0;z-index:3000;background:#f0ebe0;font-family:'Cairo',sans-serif;overflow-y:auto;">
+
+  <!-- Dashboard Topbar -->
+  <div style="background:var(--ink);border-bottom:2px solid var(--gold);padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;">
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <div style="width:38px;height:38px;background:linear-gradient(135deg,var(--gold),var(--gold-dark));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🌙</div>
+      <div>
+        <p style="color:var(--gold-light);font-size:0.82rem;font-weight:700;">لوحة الإشراف الأكاديمي</p>
+        <p style="color:rgba(255,255,255,0.45);font-size:0.68rem;">أ.د. بن جلول مختار | جامعة ابن خلدون تيارت</p>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <div style="display:flex;align-items:center;gap:0.5rem;background:rgba(200,146,42,0.15);border:1px solid rgba(200,146,42,0.3);border-radius:50px;padding:0.3rem 0.9rem;">
+        <span style="font-size:0.9rem;">👨‍🏫</span>
+        <span style="color:var(--gold-light);font-size:0.8rem;font-weight:600;">أ.د. بن جلول مختار</span>
+      </div>
+      <button onclick="profLogout()" style="background:rgba(139,26,26,0.2);border:1px solid rgba(139,26,26,0.4);color:#f87171;padding:0.35rem 0.85rem;border-radius:6px;font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.background='rgba(139,26,26,0.4)'" onmouseout="this.style.background='rgba(139,26,26,0.2)'">
+        خروج ⬅
+      </button>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 64px);">
+
+    <!-- Sidebar -->
+    <div style="background:var(--ink);padding:1.5rem 0;border-left:1px solid rgba(200,146,42,0.15);">
+      <p style="color:rgba(255,255,255,0.3);font-size:0.7rem;letter-spacing:0.1em;padding:0 1.25rem;margin-bottom:0.75rem;text-transform:uppercase;">القائمة الرئيسية</p>
+      <ul style="list-style:none;">
+        <li><a href="#" onclick="showDashSection('requests')" class="prof-nav-link active-nav" id="nav-requests" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.85rem;transition:all 0.15s;border-right:3px solid var(--gold);">
+          <span>📥</span> طلبات الانضمام
+          <span id="requests-badge" style="margin-right:auto;background:var(--red-accent);color:#fff;font-size:0.68rem;font-weight:700;padding:0.15rem 0.5rem;border-radius:50px;">٤</span>
+        </a></li>
+        <li><a href="#" onclick="showDashSection('students')" class="prof-nav-link" id="nav-students" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:all 0.15s;">
+          <span>👥</span> الطلبة المقبولون
+        </a></li>
+        <li><a href="#" onclick="showDashSection('stats')" class="prof-nav-link" id="nav-stats" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:all 0.15s;">
+          <span>📊</span> الإحصائيات
+        </a></li>
+        <li><a href="#" onclick="showDashSection('content')" class="prof-nav-link" id="nav-content" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:all 0.15s;">
+          <span>📚</span> إدارة المحتوى
+        </a></li>
+        <li><a href="#" onclick="showDashSection('exams')" class="prof-nav-link" id="nav-exams" style="display:flex;align-items:center;gap:0.6rem;padding:0.65rem 1.25rem;color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:all 0.15s;">
+          <span>📝</span> إدارة الاختبارات
+        </a></li>
+      </ul>
+    </div>
+
+    <!-- Main content -->
+    <div style="padding:2rem;" id="dash-main-content">
+
+      <!-- ===== SECTION: REQUESTS ===== -->
+      <div id="section-requests">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">📥 طلبات الانضمام للمنصة</h2>
+            <p style="font-size:0.85rem;color:var(--text-muted);">راجع بيانات الطلبة وقَبِل أو ارفض كل طلب</p>
+          </div>
+          <div style="display:flex;gap:0.6rem;flex-wrap:wrap;">
+            <button onclick="filterRequests('all')" id="filter-all" class="filter-btn active-filter" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:var(--teal);color:#fff;font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">الكل</button>
+            <button onclick="filterRequests('pending')" id="filter-pending" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">⏳ قيد الانتظار</button>
+            <button onclick="filterRequests('accepted')" id="filter-accepted" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">✅ مقبول</button>
+            <button onclick="filterRequests('rejected')" id="filter-rejected" class="filter-btn" style="padding:0.4rem 0.9rem;border-radius:6px;border:1px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.8rem;cursor:pointer;">❌ مرفوض</button>
+          </div>
+        </div>
+
+        <!-- Summary cards -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.75rem;" id="req-summary-cards">
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:var(--text-main);" id="count-all">٧</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">إجمالي الطلبات</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:#d97706;" id="count-pending">٤</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">قيد الانتظار</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:#16a34a;" id="count-accepted">٢</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">مقبول</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.1rem;text-align:center;">
+            <p style="font-size:1.8rem;font-weight:900;color:var(--red-accent);" id="count-rejected">١</p>
+            <p style="font-size:0.78rem;color:var(--text-muted);">مرفوض</p>
+          </div>
+        </div>
+
+        <!-- Requests table -->
+        <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:14px;overflow:hidden;">
+          <div style="padding:1rem 1.5rem;border-bottom:1px solid var(--parchment-dark);display:flex;align-items:center;justify-content:space-between;">
+            <p style="font-size:0.9rem;font-weight:700;color:var(--text-main);">قائمة الطلبات</p>
+            <input type="text" placeholder="🔍 بحث بالاسم أو الرقم..." oninput="searchRequests(this.value)" style="border:1px solid var(--parchment-dark);border-radius:8px;padding:0.4rem 0.75rem;font-family:'Cairo',sans-serif;font-size:0.82rem;outline:none;width:220px;">
+          </div>
+          <div id="requests-list" style="max-height:500px;overflow-y:auto;"></div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION: STUDENTS ===== -->
+      <div id="section-students" style="display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">👥 الطلبة المقبولون</h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem;">قائمة الطلبة النشطين في المنصة مع إمكانية الحظر</p>
+        <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:14px;overflow:hidden;">
+          <div id="students-list"></div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION: STATS ===== -->
+      <div id="section-stats" style="display:none;">
+        <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">📊 الإحصائيات العامة</h2>
+        <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1.5rem;">نظرة شاملة على نشاط المنصة وتقدم الطلبة</p>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:1.5rem;">
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.5rem;text-align:center;border-top:4px solid var(--teal);">
+            <p style="font-size:2.2rem;font-weight:900;color:var(--teal);">٢</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">مقررات نشطة</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.5rem;text-align:center;border-top:4px solid var(--gold);">
+            <p style="font-size:2.2rem;font-weight:900;color:var(--gold-dark);">٢٨</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">محاضرة منشورة</p>
+          </div>
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.5rem;text-align:center;border-top:4px solid #16a34a;">
+            <p style="font-size:2.2rem;font-weight:900;color:#16a34a;">١٦.٢</p>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-top:0.25rem;">متوسط نتائج الطلبة</p>
+          </div>
+        </div>
+        <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:12px;padding:1.5rem;">
+          <h4 style="font-size:0.95rem;font-weight:700;color:var(--text-main);margin-bottom:1.25rem;">تقدم الطلبة في المقررات</h4>
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;font-size:0.85rem;">
+                <span style="font-weight:600;color:var(--text-main);">علم النحو 02</span>
+                <span style="color:var(--teal);font-weight:700;">٦٣٪</span>
+              </div>
+              <div style="height:8px;background:var(--parchment-dark);border-radius:4px;overflow:hidden;">
+                <div style="width:63%;height:100%;background:linear-gradient(to left,var(--gold),var(--teal));border-radius:4px;"></div>
+              </div>
+            </div>
+            <div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:0.4rem;font-size:0.85rem;">
+                <span style="font-weight:600;color:var(--text-main);">علم الصرف 02</span>
+                <span style="color:var(--teal);font-weight:700;">٤٨٪</span>
+              </div>
+              <div style="height:8px;background:var(--parchment-dark);border-radius:4px;overflow:hidden;">
+                <div style="width:48%;height:100%;background:linear-gradient(to left,var(--gold),var(--teal));border-radius:4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== SECTION: CONTENT ===== -->
+      <div id="section-content" style="display:none;">
+        <!-- Sub-tabs: select course -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">📚 إدارة المحتوى التعليمي</h2>
+            <p style="font-size:0.85rem;color:var(--text-muted);">رفع المحاضرات وتعديلها وحذفها</p>
+          </div>
+          <div style="display:flex;gap:0.5rem;">
+            <button onclick="switchCourse('nahw')" id="ctab-nahw" style="padding:0.45rem 1.1rem;border-radius:8px;border:2px solid var(--teal);background:var(--teal);color:#fff;font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;">📖 النحو 02</button>
+            <button onclick="switchCourse('sarf')" id="ctab-sarf" style="padding:0.45rem 1.1rem;border-radius:8px;border:2px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;">✍️ الصرف 02</button>
+          </div>
+        </div>
+
+        <!-- Add lecture button -->
+        <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+          <button onclick="openLectureModal(null)" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;background:linear-gradient(135deg,var(--teal),#0d3535);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;">
+            ＋ إضافة محاضرة جديدة
+          </button>
+        </div>
+
+        <!-- Lectures list -->
+        <div id="lectures-container" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
+      </div>
+
+      <!-- ===== SECTION: EXAMS ===== -->
+      <div id="section-exams" style="display:none;">
+        <!-- Sub-nav for exams -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;">
+          <div>
+            <h2 style="font-size:1.4rem;font-weight:700;color:var(--text-main);margin-bottom:0.2rem;">📝 إدارة الاختبارات وبنك الأسئلة</h2>
+            <p style="font-size:0.85rem;color:var(--text-muted);">إنشاء الاختبارات وإدارة الأسئلة</p>
+          </div>
+          <div style="display:flex;gap:0.5rem;">
+            <button onclick="switchExamTab('list')" id="etab-list" style="padding:0.45rem 1rem;border-radius:8px;border:2px solid var(--teal);background:var(--teal);color:#fff;font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">📋 الاختبارات</button>
+            <button onclick="switchExamTab('bank')" id="etab-bank" style="padding:0.45rem 1rem;border-radius:8px;border:2px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">🗄️ بنك الأسئلة</button>
+            <button onclick="switchExamTab('results')" id="etab-results" style="padding:0.45rem 1rem;border-radius:8px;border:2px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:'Cairo',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;">📈 النتائج</button>
+          </div>
+        </div>
+
+        <!-- Exams list tab -->
+        <div id="exam-tab-list">
+          <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+            <button onclick="openExamModal()" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;background:linear-gradient(135deg,var(--teal),#0d3535);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;">
+              ＋ إنشاء اختبار جديد
+            </button>
+          </div>
+          <div id="exams-list-container" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
+        </div>
+
+        <!-- Question bank tab -->
+        <div id="exam-tab-bank" style="display:none;">
+          <div style="display:flex;justify-content:flex-end;margin-bottom:1rem;">
+            <button onclick="openQuestionModal(null)" style="display:flex;align-items:center;gap:0.5rem;padding:0.6rem 1.2rem;background:linear-gradient(135deg,var(--gold-dark),#5a3a08);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.88rem;font-weight:700;cursor:pointer;">
+              ＋ إضافة سؤال جديد
+            </button>
+          </div>
+          <div id="questions-bank-container" style="display:flex;flex-direction:column;gap:0.75rem;"></div>
+        </div>
+
+        <!-- Results tab -->
+        <div id="exam-tab-results" style="display:none;">
+          <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:14px;overflow:hidden;">
+            <div class="req-header" style="grid-template-columns:2fr 1.5fr 1fr 1fr 1fr;">
+              <span>الطالب</span><span>الاختبار</span><span>المقرر</span><span>النتيجة</span><span>التاريخ</span>
+            </div>
+            <div id="results-container"></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end dash-main-content -->
+  </div><!-- end grid -->
+</div><!-- end prof-dashboard -->
+
+<!-- Toast notification -->
+<div id="toast" style="display:none;position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:0.75rem 1.5rem;border-radius:50px;font-size:0.88rem;font-weight:600;z-index:9999;border:1px solid var(--gold);box-shadow:0 8px 25px rgba(0,0,0,0.3);"></div>
+
+<!-- ============ LECTURE MODAL ============ -->
+<div id="lecture-modal" style="display:none;position:fixed;inset:0;background:rgba(10,8,3,0.85);z-index:4000;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;">
+  <div style="background:var(--cream);border-radius:16px;max-width:620px;width:100%;margin:auto;animation:modalIn 0.3s ease;">
+    <div style="padding:1.5rem;border-bottom:1px solid var(--parchment-dark);display:flex;align-items:center;justify-content:space-between;">
+      <h3 id="lecture-modal-title" style="font-size:1.1rem;font-weight:700;color:var(--text-main);">📖 إضافة محاضرة جديدة</h3>
+      <button onclick="closeLectureModal()" style="width:32px;height:32px;border:none;background:var(--parchment-dark);border-radius:50%;cursor:pointer;font-size:0.95rem;">✕</button>
+    </div>
+    <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+      <input type="hidden" id="lec-edit-id">
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">المقرر <span class="req">*</span></label>
+        <select class="form-control" id="lec-course">
+          <option value="nahw">علم النحو 02</option>
+          <option value="sarf">علم الصرف 02</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">رقم المحاضرة <span class="req">*</span></label>
+        <select class="form-control" id="lec-number">
+          <option value="1">المحاضرة الأولى</option><option value="2">المحاضرة الثانية</option>
+          <option value="3">المحاضرة الثالثة</option><option value="4">المحاضرة الرابعة</option>
+          <option value="5">المحاضرة الخامسة</option><option value="6">المحاضرة السادسة</option>
+          <option value="7">المحاضرة السابعة</option><option value="8">المحاضرة الثامنة</option>
+          <option value="9">المحاضرة التاسعة</option><option value="10">المحاضرة العاشرة</option>
+          <option value="11">المحاضرة الحادية عشرة</option><option value="12">المحاضرة الثانية عشرة</option>
+          <option value="13">المحاضرة الثالثة عشرة</option><option value="14">المحاضرة الرابعة عشرة</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">عنوان المحاضرة <span class="req">*</span></label>
+        <input class="form-control" type="text" id="lec-title" placeholder="مثال: المبتدأ والخبر وأحكامهما">
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">ملخص المحاضرة</label>
+        <textarea class="form-control" id="lec-summary" rows="3" placeholder="موجز علمي لمحتوى المحاضرة..." style="resize:vertical;"></textarea>
+      </div>
+
+      <!-- File upload area -->
+      <div>
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">رفع ملف PDF أو فيديو</label>
+        <div id="drop-zone" onclick="document.getElementById('lec-file').click()" ondragover="event.preventDefault();this.style.borderColor='var(--teal)'" ondragleave="this.style.borderColor='var(--parchment-dark)'" ondrop="handleDrop(event)"
+          style="border:2px dashed var(--parchment-dark);border-radius:10px;padding:1.5rem;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--parchment);">
+          <span style="font-size:1.8rem;display:block;margin-bottom:0.5rem;">📁</span>
+          <p style="font-size:0.85rem;font-weight:600;color:var(--text-main);">اسحب الملف هنا أو انقر للاختيار</p>
+          <p style="font-size:0.75rem;color:var(--text-muted);margin-top:0.25rem;">PDF, MP4, DOCX – حجم أقصى 100 MB</p>
+          <input type="file" id="lec-file" style="display:none;" accept=".pdf,.mp4,.docx,.pptx" onchange="handleFileSelect(this)">
+        </div>
+        <div id="file-preview" style="display:none;margin-top:0.75rem;background:#fff;border:1px solid var(--parchment-dark);border-radius:8px;padding:0.75rem 1rem;display:none;align-items:center;justify-content:space-between;gap:0.75rem;">
+          <div style="display:flex;align-items:center;gap:0.65rem;">
+            <span id="file-icon" style="font-size:1.4rem;">📄</span>
+            <div>
+              <p id="file-name" style="font-size:0.85rem;font-weight:600;color:var(--text-main);"></p>
+              <p id="file-size" style="font-size:0.75rem;color:var(--text-muted);"></p>
+            </div>
+          </div>
+          <button onclick="clearFile()" style="background:#fee2e2;color:#991b1b;border:none;border-radius:6px;padding:0.25rem 0.6rem;font-size:0.78rem;cursor:pointer;font-family:'Cairo',sans-serif;">إزالة ✕</button>
+        </div>
+        <!-- Upload progress -->
+        <div id="upload-progress" style="display:none;margin-top:0.75rem;">
+          <div style="display:flex;justify-content:space-between;font-size:0.8rem;color:var(--text-muted);margin-bottom:0.35rem;">
+            <span>جاري الرفع...</span><span id="upload-pct">0%</span>
+          </div>
+          <div style="height:6px;background:var(--parchment-dark);border-radius:3px;overflow:hidden;">
+            <div id="upload-bar" style="width:0%;height:100%;background:linear-gradient(to left,var(--gold),var(--teal));border-radius:3px;transition:width 0.3s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video URL -->
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">أو رابط فيديو (YouTube / رابط مباشر)</label>
+        <input class="form-control" type="url" id="lec-video" placeholder="https://youtube.com/watch?v=...">
+      </div>
+
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem;">
+        <button onclick="saveLecture()" style="flex:1;padding:0.8rem;background:linear-gradient(135deg,var(--teal),#0d3535);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;">
+          💾 حفظ المحاضرة
+        </button>
+        <button onclick="closeLectureModal()" style="padding:0.8rem 1.5rem;background:var(--parchment-dark);color:var(--text-muted);border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.95rem;cursor:pointer;">
+          إلغاء
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ EXAM MODAL ============ -->
+<div id="exam-modal" style="display:none;position:fixed;inset:0;background:rgba(10,8,3,0.85);z-index:4000;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;">
+  <div style="background:var(--cream);border-radius:16px;max-width:560px;width:100%;margin:auto;animation:modalIn 0.3s ease;">
+    <div style="padding:1.5rem;border-bottom:1px solid var(--parchment-dark);display:flex;align-items:center;justify-content:space-between;">
+      <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-main);">📋 إنشاء اختبار جديد</h3>
+      <button onclick="closeExamModal()" style="width:32px;height:32px;border:none;background:var(--parchment-dark);border-radius:50%;cursor:pointer;">✕</button>
+    </div>
+    <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">عنوان الاختبار <span class="req">*</span></label>
+        <input class="form-control" type="text" id="exam-title-inp" placeholder="مثال: اختبار المحاضرة الثالثة">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">المقرر</label>
+          <select class="form-control" id="exam-course-inp">
+            <option value="nahw">علم النحو 02</option>
+            <option value="sarf">علم الصرف 02</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">المدة (دقيقة)</label>
+          <input class="form-control" type="number" id="exam-duration" value="30" min="5" max="120">
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">المحاضرة المرتبطة</label>
+        <select class="form-control" id="exam-lecture-inp">
+          <option value="">— اختياري —</option>
+          <option>المحاضرة الأولى</option><option>المحاضرة الثانية</option>
+          <option>المحاضرة الثالثة</option><option>المحاضرة الرابعة</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">ملاحظات</label>
+        <textarea class="form-control" id="exam-notes" rows="2" placeholder="تعليمات أو ملاحظات للطلبة..." style="resize:vertical;"></textarea>
+      </div>
+      <button onclick="saveExam()" style="padding:0.8rem;background:linear-gradient(135deg,var(--teal),#0d3535);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;margin-top:0.25rem;">
+        ✅ حفظ الاختبار
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ QUESTION MODAL ============ -->
+<div id="question-modal" style="display:none;position:fixed;inset:0;background:rgba(10,8,3,0.85);z-index:4000;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;">
+  <div style="background:var(--cream);border-radius:16px;max-width:580px;width:100%;margin:auto;animation:modalIn 0.3s ease;">
+    <div style="padding:1.5rem;border-bottom:1px solid var(--parchment-dark);display:flex;align-items:center;justify-content:space-between;">
+      <h3 id="q-modal-title" style="font-size:1.1rem;font-weight:700;color:var(--text-main);">🗄️ إضافة سؤال جديد</h3>
+      <button onclick="closeQuestionModal()" style="width:32px;height:32px;border:none;background:var(--parchment-dark);border-radius:50%;cursor:pointer;">✕</button>
+    </div>
+    <div style="padding:1.5rem;display:flex;flex-direction:column;gap:1rem;">
+      <input type="hidden" id="q-edit-id">
+      <div class="form-row">
+        <div class="form-group">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">المقرر</label>
+          <select class="form-control" id="q-course">
+            <option value="nahw">علم النحو 02</option>
+            <option value="sarf">علم الصرف 02</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">نوع السؤال</label>
+          <select class="form-control" id="q-type" onchange="renderQuestionFields()">
+            <option value="mcq">اختيار من متعدد</option>
+            <option value="truefalse">صح أو خطأ</option>
+            <option value="fill">ملء الفراغ</option>
+            <option value="analysis">تحليل نحوي/صرفي</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">نص السؤال <span class="req">*</span></label>
+        <textarea class="form-control" id="q-text" rows="2" placeholder="اكتب السؤال هنا..." style="resize:vertical;font-family:'Amiri',serif;font-size:1rem;"></textarea>
+      </div>
+      <!-- Dynamic fields per type -->
+      <div id="q-dynamic-fields"></div>
+      <div class="form-group">
+        <label style="display:block;font-size:0.85rem;font-weight:600;margin-bottom:0.4rem;">الإجابة النموذجية / التفسير</label>
+        <textarea class="form-control" id="q-explanation" rows="2" placeholder="الإجابة الصحيحة والتفسير العلمي..." style="resize:vertical;"></textarea>
+      </div>
+      <div style="display:flex;gap:0.75rem;">
+        <button onclick="saveQuestion()" style="flex:1;padding:0.8rem;background:linear-gradient(135deg,var(--gold-dark),#5a3a08);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-size:0.95rem;font-weight:700;cursor:pointer;">
+          💾 حفظ السؤال
+        </button>
+        <button onclick="closeQuestionModal()" style="padding:0.8rem 1.25rem;background:var(--parchment-dark);color:var(--text-muted);border:none;border-radius:8px;font-family:'Cairo',sans-serif;cursor:pointer;">إلغاء</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ DELETE CONFIRM MODAL ============ -->
+<div id="delete-modal" style="display:none;position:fixed;inset:0;background:rgba(10,8,3,0.85);z-index:5000;align-items:center;justify-content:center;padding:1rem;">
+  <div style="background:#fff;border-radius:14px;max-width:380px;width:100%;padding:2rem;text-align:center;animation:modalIn 0.25s ease;">
+    <span style="font-size:2.5rem;display:block;margin-bottom:1rem;">🗑️</span>
+    <h4 style="font-size:1.05rem;font-weight:700;color:var(--text-main);margin-bottom:0.5rem;" id="del-title">تأكيد الحذف</h4>
+    <p style="font-size:0.87rem;color:var(--text-muted);margin-bottom:1.5rem;" id="del-desc">هل أنت متأكد من الحذف؟ لا يمكن التراجع عن هذا الإجراء.</p>
+    <div style="display:flex;gap:0.75rem;justify-content:center;">
+      <button id="del-confirm-btn" style="padding:0.65rem 1.5rem;background:var(--red-accent);color:#fff;border:none;border-radius:8px;font-family:'Cairo',sans-serif;font-weight:700;cursor:pointer;">حذف نهائياً</button>
+      <button onclick="closeDeleteModal()" style="padding:0.65rem 1.25rem;background:var(--parchment-dark);color:var(--text-muted);border:none;border-radius:8px;font-family:'Cairo',sans-serif;cursor:pointer;">إلغاء</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  @keyframes toastIn { from{opacity:0;transform:translateX(-50%) translateY(10px)} to{opacity:1;transform:translateX(-50%) translateY(0)} }
+
+  .login-tabs {
+    display: flex;
+    background: var(--parchment);
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+  }
+  .login-tab {
+    flex: 1;
+    padding: 0.55rem;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text-muted);
+    transition: all 0.2s;
+  }
+  .login-tab.active {
+    background: #fff;
+    color: var(--teal);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .req-row {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--parchment);
+    transition: background 0.15s;
+  }
+  .req-row:hover { background: #fdfaf5; }
+  .req-row:last-child { border-bottom: none; }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .pill-pending { background: #fef3c7; color: #92400e; }
+  .pill-accepted { background: #dcfce7; color: #166534; }
+  .pill-rejected { background: #fee2e2; color: #991b1b; }
+  .action-btn {
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-accept { background: #dcfce7; color: #166534; }
+  .btn-accept:hover { background: #16a34a; color: #fff; }
+  .btn-reject { background: #fee2e2; color: #991b1b; }
+  .btn-reject:hover { background: #dc2626; color: #fff; }
+  .btn-ban { background: #f3f4f6; color: #374151; }
+  .btn-ban:hover { background: #374151; color: #fff; }
+
+  .prof-nav-link:hover { color: rgba(255,255,255,0.9) !important; background: rgba(200,146,42,0.08); }
+  .active-nav { color: var(--gold-light) !important; }
+
+  .req-header {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr 1fr 1fr auto;
+    gap: 1rem;
+    padding: 0.7rem 1.5rem;
+    background: var(--parchment);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--parchment-dark);
+  }
+</style>
+
+<script>
+  // =============================================
+  // DATA
+  // =============================================
+  let requests = [
+    { id:1, name:'أحمد بن عمر', univ:'20230001', email:'ahmed@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-15', status:'pending' },
+    { id:2, name:'فاطمة الزهراء كريم', univ:'20230042', email:'fatima@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-16', status:'pending' },
+    { id:3, name:'يوسف بلحسن', univ:'20220188', email:'youssef@univ-tiaret.dz', major:'دراسات لغوية', year:'السنة الثانية ليسانس', date:'2025-01-16', status:'accepted' },
+    { id:4, name:'نور الهدى مسعود', univ:'20230097', email:'nour@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-17', status:'pending' },
+    { id:5, name:'عبد الرحمن بوزيد', univ:'20230153', email:'abdrahman@univ-tiaret.dz', major:'نقد ودراسات نصية', year:'السنة الثانية ليسانس', date:'2025-01-17', status:'rejected' },
+    { id:6, name:'سارة بن علي', univ:'20230064', email:'sara@univ-tiaret.dz', major:'لغة وأدب عربي', year:'السنة الثانية ليسانس', date:'2025-01-18', status:'accepted' },
+    { id:7, name:'محمد أمين قاسمي', univ:'20230210', email:'amine@univ-tiaret.dz', major:'دراسات لغوية', year:'السنة الثانية ليسانس', date:'2025-01-18', status:'pending' },
+  ];
+
+  let currentFilter = 'all';
+  let searchTerm = '';
+
+  // =============================================
+  // LOGIN TABS
+  // =============================================
+  function switchLoginTab(tab) {
+    document.getElementById('tab-student').classList.toggle('active', tab==='student');
+    document.getElementById('tab-prof').classList.toggle('active', tab==='prof');
+    document.getElementById('login-student-section').style.display = tab==='student' ? 'block' : 'none';
+    document.getElementById('login-prof-section').style.display = tab==='prof' ? 'block' : 'none';
+  }
+
+  // Professor login (demo: email=prof@tiaret.dz pass=admin123)
+  function profLogin() {
+    const email = document.getElementById('prof-login-email').value.trim();
+    const pass = document.getElementById('prof-login-pass').value;
+    const errDiv = document.getElementById('prof-login-err');
+
+    if (!email || !pass) {
+      errDiv.style.display = 'block';
+      errDiv.innerHTML = '⚠️ يُرجى ملء جميع الحقول.';
+      return;
+    }
+
+    // Demo credentials
+    if (email === 'prof@tiaret.dz' && pass === 'admin123') {
+      errDiv.style.display = 'none';
+      closeModal('login-modal');
+      document.getElementById('prof-login-email').value = '';
+      document.getElementById('prof-login-pass').value = '';
+      showProfDashboard();
+    } else {
+      errDiv.style.display = 'block';
+      errDiv.innerHTML = '❌ بيانات الدخول غير صحيحة.<br><small style="font-weight:400">للتجربة: prof@tiaret.dz / admin123</small>';
+    }
+  }
+
+  function showProfDashboard() {
+    document.getElementById('prof-dashboard').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    renderRequests();
+    renderStudents();
+    updateCounts();
+    renderLectures();
+    renderExamsList();
+    renderQuestionBank();
+    renderResults();
+  }
+
+  function profLogout() {
+    document.getElementById('prof-dashboard').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  // =============================================
+  // DATA: LECTURES & EXAMS
+  // =============================================
+  let currentCourse = 'nahw';
+  let currentExamTab = 'list';
+
+  let lectures = {
+    nahw: [
+      { id:1, num:1, title:'مفهوم النحو وموضوعه ومسائله', summary:'تعريف علم النحو وأهميته', file:'م١_النحو.pdf', fileType:'pdf', video:'', date:'2025-01-10' },
+      { id:2, num:2, title:'المرفوعات: المبتدأ والخبر وأحكامهما', summary:'أحكام المبتدأ والخبر وأنواعهما', file:'م٢_النحو.pdf', fileType:'pdf', video:'https://youtube.com/watch?v=abc', date:'2025-01-15' },
+      { id:3, num:3, title:'الفاعل ونائب الفاعل', summary:'تعريف الفاعل وأحكامه وشروطه', file:'', fileType:'', video:'https://youtube.com/watch?v=xyz', date:'2025-01-20' },
+    ],
+    sarf: [
+      { id:10, num:1, title:'مفهوم الصرف وموضوعه', summary:'تعريف علم الصرف وأهدافه', file:'م١_الصرف.pdf', fileType:'pdf', video:'', date:'2025-01-12' },
+      { id:11, num:2, title:'الميزان الصرفي وأوزان الأفعال', summary:'قواعد الميزان الصرفي وتطبيقاته', file:'م٢_الصرف.pdf', fileType:'pdf', video:'', date:'2025-01-18' },
+    ]
+  };
+
+  let exams = [
+    { id:1, title:'اختبار المحاضرة الأولى – النحو', course:'nahw', duration:20, lecture:'المحاضرة الأولى', date:'2025-01-22', active:true },
+    { id:2, title:'اختبار المحاضرة الثانية – النحو', course:'nahw', duration:25, lecture:'المحاضرة الثانية', date:'2025-01-28', active:true },
+    { id:3, title:'اختبار الميزان الصرفي', course:'sarf', duration:30, lecture:'المحاضرة الثانية', date:'2025-02-01', active:false },
+  ];
+
+  let questions = [
+    { id:1, course:'nahw', type:'mcq', text:'ما إعراب كلمة "مجتهدٌ" في جملة "الطالبُ مجتهدٌ"؟', explanation:'خبر مرفوع وعلامة رفعه الضمة الظاهرة', date:'2025-01-20' },
+    { id:2, course:'nahw', type:'truefalse', text:'المبتدأ اسم مرفوع يقع في أول الجملة الاسمية دائماً', explanation:'خطأ – قد يتقدم الخبر على المبتدأ في بعض المواضع', date:'2025-01-21' },
+    { id:3, course:'sarf', type:'fill', text:'وزن كلمة "كتَب" على الميزان الصرفي هو: ___', explanation:'فَعَلَ', date:'2025-01-23' },
+    { id:4, course:'sarf', type:'analysis', text:'حدّد جذر الكلمة "استغفار" ووزنها الصرفي', explanation:'الجذر: غ ف ر | الوزن: استفعال', date:'2025-01-25' },
+  ];
+
+  let examResults = [
+    { student:'أحمد بن عمر', exam:'اختبار المحاضرة الأولى', course:'النحو', score:'18/20', date:'2025-01-23' },
+    { student:'فاطمة الزهراء كريم', exam:'اختبار المحاضرة الأولى', course:'النحو', score:'16/20', date:'2025-01-23' },
+    { student:'يوسف بلحسن', exam:'اختبار الميزان الصرفي', course:'الصرف', score:'14/20', date:'2025-02-02' },
+    { student:'سارة بن علي', exam:'اختبار المحاضرة الثانية', course:'النحو', score:'19/20', date:'2025-01-29' },
+  ];
+
+  let nextLecId = 20, nextExamId = 10, nextQId = 10;
+
+  // COURSE TABS
+  function switchCourse(c) {
+    currentCourse = c;
+    const s = (active) => active
+      ? 'padding:0.45rem 1.1rem;border-radius:8px;font-family:Cairo,sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;'
+      : 'padding:0.45rem 1.1rem;border-radius:8px;border:2px solid var(--parchment-dark);background:#fff;color:var(--text-muted);font-family:Cairo,sans-serif;font-size:0.85rem;font-weight:700;cursor:pointer;';
+    document.getElementById('ctab-nahw').style.cssText = c==='nahw'
+      ? s(true)+'border:2px solid var(--teal);background:var(--teal);color:#fff;'
+      : s(false);
+    document.getElementById('ctab-sarf').style.cssText = c==='sarf'
+      ? s(true)+'border:2px solid var(--gold-dark);background:var(--gold-dark);color:#fff;'
+      : s(false);
+    renderLectures();
+  }
+
+  function renderLectures() {
+    const list = lectures[currentCourse] || [];
+    const container = document.getElementById('lectures-container');
+    if (!container) return;
+    const courseLabel = currentCourse==='nahw' ? 'علم النحو 02' : 'علم الصرف 02';
+    let header = `<div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:0.25rem;">
+      <div style="display:flex;align-items:center;gap:0.6rem;">
+        <span style="font-size:1.2rem;">${currentCourse==='nahw'?'📖':'✍️'}</span>
+        <span style="font-weight:700;font-size:0.95rem;color:var(--text-main);">${courseLabel}</span>
+      </div>
+      <span style="font-size:0.82rem;color:var(--text-muted);">${list.length} محاضرة من أصل 14</span>
+    </div>`;
+    if (list.length === 0) {
+      container.innerHTML = header + '<div style="text-align:center;padding:2.5rem;color:var(--text-muted);font-size:0.9rem;background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;">لم يتم رفع أي محاضرة بعد.</div>';
+      return;
+    }
+    const typeIcon = { pdf:'📄', mp4:'🎬', docx:'📝', pptx:'📊', '':'🔗' };
+    const rows = list.map(l => `
+      <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:box-shadow 0.2s;" onmouseover="this.style.boxShadow='0 4px 14px rgba(26,18,8,0.1)'" onmouseout="this.style.boxShadow='none'">
+        <div style="width:40px;height:40px;background:${currentCourse==='nahw'?'linear-gradient(135deg,var(--teal),#0d3535)':'linear-gradient(135deg,var(--gold-dark),#5a3a08)'};border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.9rem;font-weight:700;flex-shrink:0;">${l.num}</div>
+        <div style="flex:1;min-width:0;">
+          <p style="font-weight:700;font-size:0.9rem;color:var(--text-main);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${l.title}</p>
+          <div style="display:flex;align-items:center;gap:1rem;margin-top:0.25rem;flex-wrap:wrap;">
+            ${l.file ? `<span style="font-size:0.75rem;color:var(--text-muted);">${typeIcon[l.fileType]||'📁'} ${l.file}</span>` : ''}
+            ${l.video ? `<span style="font-size:0.75rem;color:var(--teal);">🎬 فيديو مرفق</span>` : ''}
+            <span style="font-size:0.75rem;color:var(--text-muted);">📅 ${l.date}</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.4rem;flex-shrink:0;">
+          <button onclick="openLectureModal(${l.id})" style="padding:0.35rem 0.8rem;background:#dbeafe;color:#1e40af;border:none;border-radius:6px;font-family:Cairo,sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;" onmouseover="this.style.background='#1e40af';this.style.color='#fff'" onmouseout="this.style.background='#dbeafe';this.style.color='#1e40af'">✏️ تعديل</button>
+          <button onclick="confirmDelete('lecture',${l.id},'${l.title.replace(/'/g,'').replace(/"/g,'')}')" style="padding:0.35rem 0.8rem;background:#fee2e2;color:#991b1b;border:none;border-radius:6px;font-family:Cairo,sans-serif;font-size:0.78rem;font-weight:700;cursor:pointer;" onmouseover="this.style.background='#991b1b';this.style.color='#fff'" onmouseout="this.style.background='#fee2e2';this.style.color='#991b1b'">🗑️ حذف</button>
+        </div>
+      </div>`).join('');
+    container.innerHTML = header + rows;
+  }
+
+  // LECTURE MODAL
+  function openLectureModal(id) {
+    const modal = document.getElementById('lecture-modal');
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+    clearFile();
+    if (id) {
+      const allLec = [...lectures.nahw,...lectures.sarf];
+      const lec = allLec.find(l=>l.id===id);
+      if (!lec) return;
+      document.getElementById('lecture-modal-title').textContent = '✏️ تعديل المحاضرة';
+      document.getElementById('lec-edit-id').value = id;
+      document.getElementById('lec-course').value = lectures.nahw.find(l=>l.id===id) ? 'nahw' : 'sarf';
+      document.getElementById('lec-number').value = lec.num;
+      document.getElementById('lec-title').value = lec.title;
+      document.getElementById('lec-summary').value = lec.summary;
+      document.getElementById('lec-video').value = lec.video;
+      if (lec.file) showFileMock(lec.file, lec.fileType);
+    } else {
+      document.getElementById('lecture-modal-title').textContent = '📖 إضافة محاضرة جديدة';
+      document.getElementById('lec-edit-id').value = '';
+      document.getElementById('lec-course').value = currentCourse;
+      document.getElementById('lec-number').value = 1;
+      document.getElementById('lec-title').value = '';
+      document.getElementById('lec-summary').value = '';
+      document.getElementById('lec-video').value = '';
+    }
+  }
+
+  function closeLectureModal() {
+    document.getElementById('lecture-modal').style.display = 'none';
+    document.body.style.overflow = '';
+    clearFile();
+  }
+
+  function saveLecture() {
+    const title = document.getElementById('lec-title').value.trim();
+    if (!title) { showToast('⚠️ يُرجى إدخال عنوان المحاضرة'); return; }
+    const editId = parseInt(document.getElementById('lec-edit-id').value) || null;
+    const course = document.getElementById('lec-course').value;
+    const num = parseInt(document.getElementById('lec-number').value);
+    const summary = document.getElementById('lec-summary').value.trim();
+    const video = document.getElementById('lec-video').value.trim();
+    const fileEl = document.getElementById('lec-file');
+    const hasFile = fileEl.files && fileEl.files[0];
+    const fileName = hasFile ? fileEl.files[0].name : (editId ? ([...lectures.nahw,...lectures.sarf].find(l=>l.id===editId)||{}).file||'' : '');
+    const fileExt = fileName ? fileName.split('.').pop().toLowerCase() : '';
+    if (hasFile) {
+      simulateUpload(() => finalizeSave(editId, course, num, title, summary, video, fileName, fileExt));
+    } else {
+      finalizeSave(editId, course, num, title, summary, video, fileName, fileExt);
+    }
+  }
+
+  function finalizeSave(editId, course, num, title, summary, video, file, fileType) {
+    const today = new Date().toISOString().split('T')[0];
+    if (editId) {
+      ['nahw','sarf'].forEach(c => {
+        const idx = lectures[c].findIndex(l=>l.id===editId);
+        if (idx>-1) lectures[c][idx] = { ...lectures[c][idx], num, title, summary, video, file, fileType };
+      });
+      showToast('✅ تم تعديل المحاضرة بنجاح');
+    } else {
+      lectures[course].push({ id:nextLecId++, num, title, summary, video, file, fileType, date:today });
+      lectures[course].sort((a,b)=>a.num-b.num);
+      showToast('✅ تمت إضافة المحاضرة بنجاح');
+    }
+    currentCourse = course;
+    switchCourse(course);
+    closeLectureModal();
+  }
+
+  // FILE HANDLING
+  function handleFileSelect(input) {
+    if (input.files && input.files[0]) showFilePreview(input.files[0]);
+  }
+  function handleDrop(e) {
+    e.preventDefault();
+    document.getElementById('drop-zone').style.borderColor='var(--parchment-dark)';
+    const f = e.dataTransfer.files[0];
+    if (f) showFilePreview(f);
+  }
+  function showFilePreview(file) {
+    const icons={pdf:'📄',mp4:'🎬',docx:'📝',pptx:'📊'};
+    const ext=file.name.split('.').pop().toLowerCase();
+    document.getElementById('file-icon').textContent=icons[ext]||'📁';
+    document.getElementById('file-name').textContent=file.name;
+    document.getElementById('file-size').textContent=(file.size/1024/1024).toFixed(2)+' MB';
+    document.getElementById('file-preview').style.display='flex';
+    document.getElementById('drop-zone').style.display='none';
+  }
+  function showFileMock(name, ext) {
+    const icons={pdf:'📄',mp4:'🎬',docx:'📝',pptx:'📊'};
+    document.getElementById('file-icon').textContent=icons[ext]||'📁';
+    document.getElementById('file-name').textContent=name;
+    document.getElementById('file-size').textContent='ملف محفوظ';
+    document.getElementById('file-preview').style.display='flex';
+    document.getElementById('drop-zone').style.display='none';
+  }
+  function clearFile() {
+    const fi=document.getElementById('lec-file');
+    if(fi) fi.value='';
+    const fp=document.getElementById('file-preview');
+    const dz=document.getElementById('drop-zone');
+    const up=document.getElementById('upload-progress');
+    if(fp){fp.style.display='none';}
+    if(dz){dz.style.display='block';}
+    if(up){up.style.display='none';}
+  }
+  function simulateUpload(cb) {
+    const prog=document.getElementById('upload-progress');
+    const bar=document.getElementById('upload-bar');
+    const pct=document.getElementById('upload-pct');
+    prog.style.display='block';
+    let p=0;
+    const iv=setInterval(()=>{
+      p+=Math.random()*18;
+      if(p>=100){p=100;clearInterval(iv);setTimeout(cb,300);}
+      bar.style.width=p+'%';
+      pct.textContent=Math.round(p)+'%';
+    },150);
+  }
+
+  // EXAM TABS
+  function switchExamTab(tab) {
+    currentExamTab=tab;
+    ['list','bank','results'].forEach(t=>{
+      document.getElementById('exam-tab-'+t).style.display=t===tab?'block':'none';
+      const btn=document.getElementById('etab-'+t);
+      if(t===tab){btn.style.background='var(--teal)';btn.style.color='#fff';btn.style.borderColor='var(--teal)';}
+      else{btn.style.background='#fff';btn.style.color='var(--text-muted)';btn.style.borderColor='var(--parchment-dark)';}
+    });
+    if(tab==='list') renderExamsList();
+    if(tab==='bank') renderQuestionBank();
+    if(tab==='results') renderResults();
+  }
+
+  // EXAMS LIST
+  function renderExamsList() {
+    const container=document.getElementById('exams-list-container');
+    if(!container) return;
+    if(exams.length===0){container.innerHTML='<div style="text-align:center;padding:2.5rem;color:var(--text-muted);font-size:0.9rem;background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;">لم يتم إنشاء أي اختبار بعد.</div>';return;}
+    container.innerHTML=exams.map(ex=>`
+      <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:1rem;">
+        <div style="width:40px;height:40px;background:linear-gradient(135deg,${ex.course==='nahw'?'var(--teal),#0d3535':'var(--gold-dark),#5a3a08'});border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;flex-shrink:0;">📝</div>
+        <div style="flex:1;min-width:0;">
+          <p style="font-weight:700;font-size:0.9rem;color:var(--text-main);">${ex.title}</p>
+          <div style="display:flex;gap:1rem;margin-top:0.3rem;flex-wrap:wrap;">
+            <span style="font-size:0.75rem;color:var(--text-muted);">⏱ ${ex.duration} دقيقة</span>
+            <span style="font-size:0.75rem;color:var(--text-muted);">📚 ${ex.course==='nahw'?'النحو':'الصرف'}</span>
+            ${ex.lecture?`<span style="font-size:0.75rem;color:var(--text-muted);">🔗 ${ex.lecture}</span>`:''}
+            <span style="font-size:0.75rem;color:var(--text-muted);">📅 ${ex.date}</span>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:0.5rem;flex-shrink:0;">
+          <span style="padding:0.25rem 0.65rem;border-radius:50px;font-size:0.72rem;font-weight:700;${ex.active?'background:#dcfce7;color:#166534':'background:#f3f4f6;color:#6b7280'}">${ex.active?'✅ نشط':'⏸ موقوف'}</span>
+          <button onclick="toggleExam(${ex.id})" style="padding:0.3rem 0.65rem;background:#fef3c7;color:#92400e;border:none;border-radius:6px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;">${ex.active?'إيقاف':'تفعيل'}</button>
+          <button onclick="confirmDelete('exam',${ex.id},'اختبار')" style="padding:0.3rem 0.65rem;background:#fee2e2;color:#991b1b;border:none;border-radius:6px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;">🗑️</button>
+        </div>
+      </div>`).join('');
+  }
+  function toggleExam(id){const ex=exams.find(e=>e.id===id);if(ex){ex.active=!ex.active;renderExamsList();showToast(ex.active?'✅ تم تفعيل الاختبار':'⏸ تم إيقاف الاختبار');}}
+  function openExamModal(){
+    document.getElementById('exam-modal').style.display='flex';
+    document.body.style.overflow='hidden';
+    document.getElementById('exam-title-inp').value='';
+    document.getElementById('exam-duration').value=30;
+    document.getElementById('exam-notes').value='';
+  }
+  function closeExamModal(){document.getElementById('exam-modal').style.display='none';document.body.style.overflow='';}
+  function saveExam(){
+    const title=document.getElementById('exam-title-inp').value.trim();
+    if(!title){showToast('⚠️ يُرجى إدخال عنوان الاختبار');return;}
+    exams.push({id:nextExamId++,title,course:document.getElementById('exam-course-inp').value,duration:parseInt(document.getElementById('exam-duration').value)||30,lecture:document.getElementById('exam-lecture-inp').value,date:new Date().toISOString().split('T')[0],active:true});
+    renderExamsList();closeExamModal();showToast('✅ تم إنشاء الاختبار بنجاح');
+  }
+
+  // QUESTION BANK
+  const qTypeLabels={mcq:'اختيار من متعدد',truefalse:'صح أو خطأ',fill:'ملء الفراغ',analysis:'تحليل نحوي/صرفي'};
+  const qTypeBg={mcq:'#dbeafe',truefalse:'#dcfce7',fill:'#fef3c7',analysis:'#f3e8ff'};
+  const qTypeColor={mcq:'#1e40af',truefalse:'#166534',fill:'#92400e',analysis:'#6b21a8'};
+
+  function renderQuestionBank(){
+    const container=document.getElementById('questions-bank-container');
+    if(!container) return;
+    if(questions.length===0){container.innerHTML='<div style="text-align:center;padding:2.5rem;color:var(--text-muted);background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;font-size:0.9rem;">بنك الأسئلة فارغ.</div>';return;}
+    container.innerHTML=questions.map(q=>`
+      <div style="background:#fff;border:1px solid var(--parchment-dark);border-radius:10px;padding:1.1rem 1.4rem;display:flex;align-items:flex-start;gap:1rem;">
+        <div style="padding:0.25rem 0.7rem;border-radius:50px;font-size:0.72rem;font-weight:700;white-space:nowrap;flex-shrink:0;background:${qTypeBg[q.type]};color:${qTypeColor[q.type]}">${qTypeLabels[q.type]}</div>
+        <div style="flex:1;min-width:0;">
+          <p style="font-family:Amiri,serif;font-size:1rem;color:var(--text-main);line-height:1.6;">${q.text}</p>
+          <div style="display:flex;gap:1rem;margin-top:0.4rem;">
+            <span style="font-size:0.75rem;color:var(--text-muted);">📚 ${q.course==='nahw'?'النحو':'الصرف'}</span>
+            <span style="font-size:0.75rem;color:var(--teal);">✅ ${q.explanation}</span>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.4rem;flex-shrink:0;">
+          <button onclick="openQuestionModal(${q.id})" style="padding:0.3rem 0.7rem;background:#dbeafe;color:#1e40af;border:none;border-radius:6px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;" onmouseover="this.style.background='#1e40af';this.style.color='#fff'" onmouseout="this.style.background='#dbeafe';this.style.color='#1e40af'">✏️</button>
+          <button onclick="confirmDelete('question',${q.id},'سؤال')" style="padding:0.3rem 0.7rem;background:#fee2e2;color:#991b1b;border:none;border-radius:6px;font-size:0.75rem;font-weight:700;cursor:pointer;font-family:Cairo,sans-serif;" onmouseover="this.style.background='#991b1b';this.style.color='#fff'" onmouseout="this.style.background='#fee2e2';this.style.color='#991b1b'">🗑️</button>
+        </div>
+      </div>`).join('');
+  }
+  function openQuestionModal(id){
+    document.getElementById('question-modal').style.display='flex';
+    document.body.style.overflow='hidden';
+    if(id){
+      const q=questions.find(x=>x.id===id);
+      if(!q) return;
+      document.getElementById('q-modal-title').textContent='✏️ تعديل السؤال';
+      document.getElementById('q-edit-id').value=id;
+      document.getElementById('q-course').value=q.course;
+      document.getElementById('q-type').value=q.type;
+      document.getElementById('q-text').value=q.text;
+      document.getElementById('q-explanation').value=q.explanation;
+    } else {
+      document.getElementById('q-modal-title').textContent='🗄️ إضافة سؤال جديد';
+      document.getElementById('q-edit-id').value='';
+      document.getElementById('q-course').value='nahw';
+      document.getElementById('q-type').value='mcq';
+      document.getElementById('q-text').value='';
+      document.getElementById('q-explanation').value='';
+    }
+    renderQuestionFields();
+  }
+  function closeQuestionModal(){document.getElementById('question-modal').style.display='none';document.body.style.overflow='';}
+  function renderQuestionFields(){
+    const type=document.getElementById('q-type').value;
+    const container=document.getElementById('q-dynamic-fields');
+    if(type==='mcq'){
+      container.innerHTML=`<div style="display:flex;flex-direction:column;gap:0.6rem;">
+        <label style="font-size:0.85rem;font-weight:600;color:var(--text-main);">خيارات الإجابة (اختر الصحيحة بزر الراديو)</label>
+        ${['أ','ب','ج','د'].map((l,i)=>`
+        <div style="display:flex;align-items:center;gap:0.5rem;">
+          <input type="radio" name="correct-opt" value="${i}" style="flex-shrink:0;">
+          <span style="width:24px;height:24px;border-radius:50%;background:var(--parchment-dark);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0;">${l}</span>
+          <input class="form-control" style="flex:1;" type="text" id="q-opt-${i}" placeholder="الخيار ${l}">
+        </div>`).join('')}
+      </div>`;
+    } else if(type==='truefalse'){
+      container.innerHTML=`<div style="display:flex;gap:1rem;">
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.9rem;font-weight:600;color:#166534;padding:0.6rem 1.25rem;background:#dcfce7;border-radius:8px;">
+          <input type="radio" name="tf-ans" value="true" style="accent-color:#16a34a;"> ✅ صح
+        </label>
+        <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.9rem;font-weight:600;color:#991b1b;padding:0.6rem 1.25rem;background:#fee2e2;border-radius:8px;">
+          <input type="radio" name="tf-ans" value="false" style="accent-color:#dc2626;"> ❌ خطأ
+        </label>
+      </div>`;
+    } else { container.innerHTML=''; }
+  }
+  function saveQuestion(){
+    const text=document.getElementById('q-text').value.trim();
+    if(!text){showToast('⚠️ يُرجى كتابة نص السؤال');return;}
+    const editId=parseInt(document.getElementById('q-edit-id').value)||null;
+    const qObj={id:editId||nextQId++,course:document.getElementById('q-course').value,type:document.getElementById('q-type').value,text,explanation:document.getElementById('q-explanation').value.trim(),date:new Date().toISOString().split('T')[0]};
+    if(editId){const idx=questions.findIndex(q=>q.id===editId);if(idx>-1)questions[idx]=qObj;showToast('✅ تم تعديل السؤال');}
+    else{questions.push(qObj);showToast('✅ تمت إضافة السؤال لبنك الأسئلة');}
+    renderQuestionBank();closeQuestionModal();
+  }
+
+  // RESULTS
+  function renderResults(){
+    const container=document.getElementById('results-container');
+    if(!container) return;
+    container.innerHTML=examResults.map(r=>`
+      <div class="req-row" style="grid-template-columns:2fr 1.5fr 1fr 1fr 1fr;">
+        <span style="font-weight:600;font-size:0.87rem;">${r.student}</span>
+        <span style="font-size:0.83rem;color:var(--text-muted);">${r.exam}</span>
+        <span style="font-size:0.83rem;color:var(--text-muted);">${r.course}</span>
+        <span style="font-weight:700;color:var(--teal);font-size:0.87rem;">${r.score}</span>
+        <span style="font-size:0.8rem;color:var(--text-muted);">${r.date}</span>
+      </div>`).join('');
+  }
+
+  // DELETE CONFIRM
+  let pendingDelete=null;
+  function confirmDelete(type,id,label){
+    pendingDelete={type,id};
+    document.getElementById('del-title').textContent='حذف: '+label;
+    document.getElementById('del-confirm-btn').onclick=executeDeletion;
+    document.getElementById('delete-modal').style.display='flex';
+  }
+  function executeDeletion(){
+    if(!pendingDelete) return;
+    const{type,id}=pendingDelete;
+    if(type==='lecture'){['nahw','sarf'].forEach(c=>{lectures[c]=lectures[c].filter(l=>l.id!==id);});renderLectures();showToast('🗑️ تم حذف المحاضرة');}
+    else if(type==='exam'){exams=exams.filter(e=>e.id!==id);renderExamsList();showToast('🗑️ تم حذف الاختبار');}
+    else if(type==='question'){questions=questions.filter(q=>q.id!==id);renderQuestionBank();showToast('🗑️ تم حذف السؤال');}
+    closeDeleteModal();
+  }
+  function closeDeleteModal(){document.getElementById('delete-modal').style.display='none';pendingDelete=null;}
+
+  // =============================================
+  // DASHBOARD NAVIGATION
+  // =============================================
+  function showDashSection(name) {
+    ['requests','students','stats','content','exams'].forEach(s => {
+      document.getElementById('section-'+s).style.display = s===name ? 'block' : 'none';
+    });
+    document.querySelectorAll('.prof-nav-link').forEach(l => {
+      l.classList.remove('active-nav');
+      l.style.borderRight = 'none';
+      l.style.color = 'rgba(255,255,255,0.55)';
+    });
+    const active = document.getElementById('nav-'+name);
+    if (active) {
+      active.classList.add('active-nav');
+      active.style.borderRight = '3px solid var(--gold)';
+      active.style.color = 'rgba(255,255,255,0.9)';
+    }
+    return false;
+  }
+
+  // =============================================
+  // REQUESTS RENDERING
+  // =============================================
+  function updateCounts() {
+    const all = requests.length;
+    const pending = requests.filter(r=>r.status==='pending').length;
+    const accepted = requests.filter(r=>r.status==='accepted').length;
+    const rejected = requests.filter(r=>r.status==='rejected').length;
+    document.getElementById('count-all').textContent = toArabicNum(all);
+    document.getElementById('count-pending').textContent = toArabicNum(pending);
+    document.getElementById('count-accepted').textContent = toArabicNum(accepted);
+    document.getElementById('count-rejected').textContent = toArabicNum(rejected);
+    const badge = document.getElementById('requests-badge');
+    if (pending > 0) { badge.style.display='inline'; badge.textContent=toArabicNum(pending); }
+    else badge.style.display='none';
+  }
+
+  function toArabicNum(n) {
+    return n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+  }
+
+  function filterRequests(f) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.style.background = '#fff';
+      b.style.color = 'var(--text-muted)';
+      b.style.borderColor = 'var(--parchment-dark)';
+    });
+    const active = document.getElementById('filter-'+f);
+    if (active) { active.style.background='var(--teal)'; active.style.color='#fff'; active.style.borderColor='var(--teal)'; }
+    renderRequests();
+  }
+
+  function searchRequests(val) {
+    searchTerm = val.toLowerCase();
+    renderRequests();
+  }
+
+  function renderRequests() {
+    let filtered = requests.filter(r => {
+      const matchFilter = currentFilter==='all' || r.status===currentFilter;
+      const matchSearch = !searchTerm || r.name.includes(searchTerm) || r.univ.includes(searchTerm) || r.email.includes(searchTerm);
+      return matchFilter && matchSearch;
+    });
+
+    const container = document.getElementById('requests-list');
+    if (filtered.length === 0) {
+      container.innerHTML = '<div style="text-align:center;padding:3rem;color:var(--text-muted);font-size:0.9rem;">لا توجد طلبات تطابق هذا الفلتر</div>';
+      return;
+    }
+
+    const statusLabel = { pending:'⏳ قيد الانتظار', accepted:'✅ مقبول', rejected:'❌ مرفوض' };
+    const statusClass = { pending:'pill-pending', accepted:'pill-accepted', rejected:'pill-rejected' };
+
+    container.innerHTML = `
+      <div class="req-header">
+        <span>الطالب</span>
+        <span>التخصص / السنة</span>
+        <span>تاريخ الطلب</span>
+        <span>الحالة</span>
+        <span>الإجراءات</span>
+      </div>
+      ${filtered.map(r => `
+      <div class="req-row" id="req-row-${r.id}">
+        <div>
+          <p style="font-weight:700;font-size:0.88rem;color:var(--text-main);">${r.name}</p>
+          <p style="font-size:0.76rem;color:var(--text-muted);">${r.univ} | ${r.email}</p>
+        </div>
+        <div>
+          <p style="font-size:0.82rem;color:var(--text-main);font-weight:600;">${r.major}</p>
+          <p style="font-size:0.76rem;color:var(--text-muted);">${r.year}</p>
+        </div>
+        <p style="font-size:0.82rem;color:var(--text-muted);">${r.date}</p>
+        <span class="status-pill ${statusClass[r.status]}">${statusLabel[r.status]}</span>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+          ${r.status==='pending' ? `
+            <button class="action-btn btn-accept" onclick="changeStatus(${r.id},'accepted')">قبول ✓</button>
+            <button class="action-btn btn-reject" onclick="changeStatus(${r.id},'rejected')">رفض ✗</button>
+          ` : r.status==='accepted' ? `
+            <button class="action-btn btn-ban" onclick="changeStatus(${r.id},'rejected')">حظر 🚫</button>
+          ` : `
+            <button class="action-btn btn-accept" onclick="changeStatus(${r.id},'accepted')">إعادة قبول</button>
+          `}
+        </div>
+      </div>`).join('')}
+    `;
+  }
+
+  function changeStatus(id, newStatus) {
+    const req = requests.find(r=>r.id===id);
+    if (!req) return;
+    const oldStatus = req.status;
+    req.status = newStatus;
+    renderRequests();
+    renderStudents();
+    updateCounts();
+    const msgs = { accepted:'✅ تم قبول الطالب بنجاح', rejected: oldStatus==='accepted' ? '🚫 تم حظر الطالب' : '❌ تم رفض الطلب' };
+    showToast(msgs[newStatus] || 'تم تحديث الحالة');
+  }
+
+  // =============================================
+  // STUDENTS RENDERING
+  // =============================================
+  function renderStudents() {
+    const accepted = requests.filter(r=>r.status==='accepted');
+    const container = document.getElementById('students-list');
+    if (accepted.length === 0) {
+      container.innerHTML = '<div style="text-align:center;padding:3rem;color:var(--text-muted);font-size:0.9rem;">لا يوجد طلبة مقبولون بعد</div>';
+      return;
+    }
+    container.innerHTML = `
+      <div class="req-header" style="grid-template-columns:2fr 1.5fr 1fr auto;">
+        <span>الطالب</span><span>التخصص</span><span>تاريخ القبول</span><span>إجراء</span>
+      </div>
+      ${accepted.map((r,i) => `
+      <div class="req-row" style="grid-template-columns:2fr 1.5fr 1fr auto;">
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#0d3535);display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.8rem;font-weight:700;flex-shrink:0;">${r.name.charAt(0)}</div>
+          <div>
+            <p style="font-weight:700;font-size:0.88rem;">${r.name}</p>
+            <p style="font-size:0.75rem;color:var(--text-muted);">${r.univ}</p>
+          </div>
+        </div>
+        <p style="font-size:0.83rem;color:var(--text-muted);">${r.major}</p>
+        <p style="font-size:0.82rem;color:var(--text-muted);">${r.date}</p>
+        <button class="action-btn btn-ban" onclick="changeStatus(${r.id},'rejected')">حظر 🚫</button>
+      </div>`).join('')}
+    `;
+  }
+
+  // =============================================
+  // TOAST
+  // =============================================
+  let toastTimer;
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.display = 'block';
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { t.style.display='none'; }, 3000);
+  }
+
+  // =============================================
+  // MODAL functions
+  // =============================================
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function switchModal(from, to) {
+    closeModal(from);
+    setTimeout(() => openModal(to), 200);
+  }
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+
+  // =============================================
+  // REGISTER
+  // =============================================
+  function submitRegister() {
+    const name = document.getElementById('reg-name').value.trim();
+    const id = document.getElementById('reg-id').value.trim();
+    const email = document.getElementById('reg-email').value.trim();
+    const major = document.getElementById('reg-major').value;
+    const year = document.getElementById('reg-year').value;
+    const pass = document.getElementById('reg-pass').value;
+    const pass2 = document.getElementById('reg-pass2').value;
+    const agreed = document.getElementById('agree-charter').checked;
+
+    if (!name || !id || !email || !major || !year || !pass) {
+      alert('يُرجى ملء جميع الحقول المطلوبة.');
+      return;
+    }
+    if (pass !== pass2) {
+      alert('كلمة المرور وتأكيدها غير متطابقتين.');
+      return;
+    }
+    if (!agreed) {
+      alert('يجب الموافقة على ميثاق النزاهة العلمية للمتابعة.');
+      return;
+    }
+
+    // Add to requests list (demo)
+    requests.push({
+      id: requests.length + 1,
+      name, univ: id, email, major, year,
+      date: new Date().toISOString().split('T')[0],
+      status: 'pending'
+    });
+
+    document.getElementById('register-form-body').style.display = 'none';
+    document.getElementById('register-success').style.display = 'block';
+  }
+
+  // =============================================
+  // QUIZ
+  // =============================================
+  let answered = false;
+  function selectOpt(el, isCorrect) {
+    if (answered) return;
+    answered = true;
+    document.querySelectorAll('.quiz-option').forEach(o => { o.style.pointerEvents = 'none'; });
+    const resultDiv = document.getElementById('quiz-result');
+    if (isCorrect) {
+      el.classList.add('correct');
+      resultDiv.style.cssText = 'display:block;background:#f0fdf4;color:#166534;border:1px solid #22c55e;border-radius:8px;padding:0.85rem;margin-top:1.25rem;font-size:0.9rem;font-weight:600;';
+      resultDiv.innerHTML = '✅ إجابة صحيحة! "مجتهداً" حالٌ منصوب وعلامة نصبه الفتحة الظاهرة، وصاحب الحال هو "الطالب".';
+    } else {
+      el.classList.add('wrong');
+      document.querySelectorAll('.quiz-option')[1].classList.add('correct');
+      resultDiv.style.cssText = 'display:block;background:#fef2f2;color:#991b1b;border:1px solid #f87171;border-radius:8px;padding:0.85rem;margin-top:1.25rem;font-size:0.9rem;font-weight:600;';
+      resultDiv.innerHTML = '❌ إجابة خاطئة. الصواب: "مجتهداً" حالٌ منصوب وعلامة نصبه الفتحة الظاهرة على آخره.';
+    }
+  }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Progress bar animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.getAttribute('data-width') || entry.target.style.width;
+      }
+    });
+  }, { threshold: 0.3 });
+
+  document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+    bar.setAttribute('data-width', bar.style.width);
+    bar.style.width = '0%';
+    observer.observe(bar);
+  });
+</script>
+</body>
+</html>
