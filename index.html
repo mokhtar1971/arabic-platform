@@ -6,6 +6,12 @@
 <title>AI شريك لا بديل للإنسان | منصة علوم العربية</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@300;400;600;700;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init({ publicKey: "qoNDx6Phq2D94Gfug" });
+  })();
+</script>
 <style>
   :root {
     --ink: #1a1208;
@@ -1922,7 +1928,8 @@
       <div class="success-icon">📬</div>
       <h4>تم إرسال طلب التسجيل بنجاح!</h4>
       <p>سيتولى الأستاذ الدكتور بن جلول مختار مراجعة طلبك والبت فيه قريباً.<br>
-      ستصلك رسالة على بريدك الإلكتروني عند تفعيل الحساب.</p>
+      <strong>تم إرسال بريد تأكيد إلى عنوانك الإلكتروني.</strong><br>
+      <span style="font-size:0.82rem;color:var(--text-muted);">إن لم يصل، تحقق من مجلد البريد غير المرغوب فيه (Spam).</span></p>
     </div>
   </div>
 </div>
@@ -3134,30 +3141,36 @@
   // =============================================
   // REGISTER
   // =============================================
-  function submitRegister() {
-    const name = document.getElementById('reg-name').value.trim();
-    const id = document.getElementById('reg-id').value.trim();
-    const email = document.getElementById('reg-email').value.trim();
-    const major = document.getElementById('reg-major').value;
-    const year = document.getElementById('reg-year').value;
-    const pass = document.getElementById('reg-pass').value;
-    const pass2 = document.getElementById('reg-pass2').value;
-    const agreed = document.getElementById('agree-charter').checked;
+  async function submitRegister() {
+    const name    = document.getElementById('reg-name').value.trim();
+    const id      = document.getElementById('reg-id').value.trim();
+    const email   = document.getElementById('reg-email').value.trim();
+    const major   = document.getElementById('reg-major').value;
+    const year    = document.getElementById('reg-year').value;
+    const pass    = document.getElementById('reg-pass').value;
+    const pass2   = document.getElementById('reg-pass2').value;
+    const agreed  = document.getElementById('agree-charter').checked;
 
     if (!name || !id || !email || !major || !year || !pass) {
-      alert('يُرجى ملء جميع الحقول المطلوبة.');
+      showToast('⚠️ يُرجى ملء جميع الحقول المطلوبة');
       return;
     }
     if (pass !== pass2) {
-      alert('كلمة المرور وتأكيدها غير متطابقتين.');
+      showToast('⚠️ كلمة المرور وتأكيدها غير متطابقتين');
       return;
     }
     if (!agreed) {
-      alert('يجب الموافقة على ميثاق النزاهة العلمية للمتابعة.');
+      showToast('⚠️ يجب الموافقة على ميثاق النزاهة العلمية');
       return;
     }
 
-    // Add to requests list (demo)
+    // Disable button and show loading
+    const btn = document.querySelector('#register-form-body .btn-submit');
+    const origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '⏳ جاري الإرسال...';
+
+    // Add to requests list
     requests.push({
       id: requests.length + 1,
       name, univ: id, email, major, year,
@@ -3165,8 +3178,34 @@
       status: 'pending'
     });
 
-    document.getElementById('register-form-body').style.display = 'none';
-    document.getElementById('register-success').style.display = 'block';
+    // Send confirmation email to student via EmailJS
+    const templateParams = {
+      student_name:  name,
+      student_email: email,
+      student_id:    id,
+      student_major: major,
+      student_year:  year,
+      to_email:      email,
+    };
+
+    try {
+      await emailjs.send('service_0sdfq3c', 'template_eqoex0k', templateParams);
+      // Success
+      document.getElementById('register-form-body').style.display = 'none';
+      document.getElementById('register-success').style.display   = 'block';
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      // Still show success UI (request saved) but warn about email
+      document.getElementById('register-form-body').style.display = 'none';
+      document.getElementById('register-success').style.display   = 'block';
+      document.getElementById('register-success').innerHTML += `
+        <p style="margin-top:1rem;font-size:0.82rem;color:#92400e;background:#fef3c7;padding:0.65rem 1rem;border-radius:8px;">
+          ⚠️ تم حفظ طلبك بنجاح، لكن تعذّر إرسال بريد التأكيد. تحقق من صحة بريدك الإلكتروني.
+        </p>`;
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+    }
   }
 
   // =============================================
